@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6g75bsnqsv8p"]
+[gd_scene load_steps=4 format=3 uid="uid://b6g75bsnqsv8p"]
 
 [ext_resource type="Script" path="res://heist_client.gd" id="1_bemqt"]
+
+[sub_resource type="Theme" id="Theme_14gmh"]
+
+[sub_resource type="Shortcut" id="Shortcut_p7sma"]
 
 [node name="HeistClient" type="Node2D"]
 script = ExtResource("1_bemqt")
@@ -15,6 +19,7 @@ offset_left = 181.0
 offset_top = 64.0
 offset_right = 243.0
 offset_bottom = 107.0
+theme = SubResource("Theme_14gmh")
 text = "UP"
 
 [node name="DownButton" type="Button" parent="Panel"]
@@ -48,6 +53,12 @@ offset_top = 281.0
 offset_right = 298.0
 offset_bottom = 315.0
 text = "Connect"
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+shortcut = SubResource("Shortcut_p7sma")
 
 [connection signal="pressed" from="Panel/UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="button_down" from="Panel/DownButton" to="." method="_on_down_button_button_down"]
