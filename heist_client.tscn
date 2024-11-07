@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6g75bsnqsv8p"]
+[gd_scene load_steps=12 format=3 uid="uid://b6g75bsnqsv8p"]
 
 [ext_resource type="Script" path="res://heist_client.gd" id="1_bemqt"]
 
@@ -9,6 +9,24 @@ action = &"up"
 
 [sub_resource type="Shortcut" id="Shortcut_ka5si"]
 events = [SubResource("InputEventAction_fet2w")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6mul6"]
+action = &"down"
+
+[sub_resource type="Shortcut" id="Shortcut_kdpva"]
+events = [SubResource("InputEventAction_6mul6")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6darf"]
+action = &"left"
+
+[sub_resource type="Shortcut" id="Shortcut_x8tks"]
+events = [SubResource("InputEventAction_6darf")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gr6e5"]
+action = &"right"
+
+[sub_resource type="Shortcut" id="Shortcut_ldydu"]
+events = [SubResource("InputEventAction_gr6e5")]
 
 [sub_resource type="Shortcut" id="Shortcut_p7sma"]
 
@@ -21,44 +39,51 @@ offset_bottom = 495.0
 
 [node name="UpButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 64.0
-offset_right = 243.0
-offset_bottom = 107.0
+offset_left = 187.0
+offset_top = 172.0
+offset_right = 277.0
+offset_bottom = 232.0
 theme = SubResource("Theme_14gmh")
 shortcut = SubResource("Shortcut_ka5si")
 text = "UP"
+metadata/_edit_group_ = true
 
 [node name="DownButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 181.0
-offset_top = 126.0
-offset_right = 243.0
-offset_bottom = 169.0
+offset_left = 188.0
+offset_top = 250.0
+offset_right = 278.0
+offset_bottom = 310.0
+shortcut = SubResource("Shortcut_kdpva")
 text = "DOWN"
+metadata/_edit_group_ = true
 
 [node name="LeftButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 97.0
-offset_right = 165.0
-offset_bottom = 140.0
+offset_left = 76.0
+offset_top = 250.0
+offset_right = 166.0
+offset_bottom = 310.0
+shortcut = SubResource("Shortcut_x8tks")
 text = "LEFT"
+metadata/_edit_group_ = true
 
 [node name="RightButton" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 263.0
-offset_top = 96.0
-offset_right = 325.0
-offset_bottom = 139.0
+offset_left = 300.0
+offset_top = 250.0
+offset_right = 390.0
+offset_bottom = 310.0
+shortcut = SubResource("Shortcut_ldydu")
 text = "RIGHT"
+metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 281.0
-offset_right = 298.0
-offset_bottom = 315.0
+offset_left = 364.0
+offset_top = 438.0
+offset_right = 552.0
+offset_bottom = 472.0
 text = "Connect"
 
 [node name="TextureButton" type="TextureButton" parent="Panel"]
