@@ -10,11 +10,11 @@ action = &"up"
 [sub_resource type="Shortcut" id="Shortcut_ka5si"]
 events = [SubResource("InputEventAction_fet2w")]
 
-[sub_resource type="InputEventAction" id="InputEventAction_6mul6"]
+[sub_resource type="InputEventAction" id="InputEventAction_8yo2p"]
 action = &"down"
 
 [sub_resource type="Shortcut" id="Shortcut_kdpva"]
-events = [SubResource("InputEventAction_6mul6")]
+events = [SubResource("InputEventAction_8yo2p")]
 
 [sub_resource type="InputEventAction" id="InputEventAction_6darf"]
 action = &"left"
