@@ -49,12 +49,15 @@ func _on_up_button_pressed() -> void:
 
 
 func _on_down_button_button_down() -> void:
-	send("move|lockpick|DOWN")
+	#send("move|lockpick|DOWN")
+	print("down")
 
 
 func _on_left_button_pressed() -> void:
-	send("move|lockpick|LEFT")
+	#send("move|lockpick|LEFT")
+	print("left")
 
 
 func _on_right_button_pressed() -> void:
-	send("move|lockpick|RIGHT")
+	#send("move|lockpick|RIGHT")
+	print("right")
