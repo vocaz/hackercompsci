@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6g75bsnqsv8p"]
+[gd_scene load_steps=12 format=3 uid="uid://b6g75bsnqsv8p"]
 
 [ext_resource type="Script" path="res://heist_client.gd" id="1_bemqt"]
 
@@ -9,6 +9,24 @@ action = &"up"
 
 [sub_resource type="Shortcut" id="Shortcut_ka5si"]
 events = [SubResource("InputEventAction_fet2w")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6mul6"]
+action = &"down"
+
+[sub_resource type="Shortcut" id="Shortcut_kdpva"]
+events = [SubResource("InputEventAction_6mul6")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6darf"]
+action = &"left"
+
+[sub_resource type="Shortcut" id="Shortcut_x8tks"]
+events = [SubResource("InputEventAction_6darf")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_gr6e5"]
+action = &"right"
+
+[sub_resource type="Shortcut" id="Shortcut_ldydu"]
+events = [SubResource("InputEventAction_gr6e5")]
 
 [sub_resource type="Shortcut" id="Shortcut_p7sma"]
 
@@ -36,6 +54,7 @@ offset_left = 188.0
 offset_top = 250.0
 offset_right = 278.0
 offset_bottom = 310.0
+shortcut = SubResource("Shortcut_kdpva")
 text = "DOWN"
 metadata/_edit_group_ = true
 
@@ -45,6 +64,7 @@ offset_left = 76.0
 offset_top = 250.0
 offset_right = 166.0
 offset_bottom = 310.0
+shortcut = SubResource("Shortcut_x8tks")
 text = "LEFT"
 metadata/_edit_group_ = true
 
@@ -54,6 +74,7 @@ offset_left = 300.0
 offset_top = 250.0
 offset_right = 390.0
 offset_bottom = 310.0
+shortcut = SubResource("Shortcut_ldydu")
 text = "RIGHT"
 metadata/_edit_group_ = true
 
