@@ -45,7 +45,7 @@ func send(message: String):
 
 
 func _on_up_button_pressed() -> void:
-	send("move|lockpick|UP")
+	print("up")
 
 
 func _on_down_button_button_down() -> void:
