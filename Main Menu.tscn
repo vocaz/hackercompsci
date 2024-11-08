@@ -1,6 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct8t7ub2u0m7b"]
+[gd_scene load_steps=16 format=3 uid="uid://ct8t7ub2u0m7b"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_t263y"]
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_71kv2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2ga8"]
+
+[sub_resource type="Gradient" id="Gradient_7dk4h"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ldki0"]
+gradient = SubResource("Gradient_7dk4h")
+width = 256
+height = 216
+
+[sub_resource type="InputEventAction" id="InputEventAction_r7ypf"]
+action = &"up"
+
+[sub_resource type="Shortcut" id="Shortcut_akmqp"]
+events = [SubResource("InputEventAction_r7ypf")]
+
+[sub_resource type="Gradient" id="Gradient_7s0x5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tpnwm"]
+gradient = SubResource("Gradient_7s0x5")
+width = 128
+height = 88
+
+[sub_resource type="InputEventAction" id="InputEventAction_3836f"]
+action = &"down"
+
+[sub_resource type="Shortcut" id="Shortcut_acpyh"]
+events = [SubResource("InputEventAction_3836f")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_dnrhr"]
+action = &"left"
+
+[sub_resource type="Shortcut" id="Shortcut_iuj6p"]
+events = [SubResource("InputEventAction_dnrhr")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_n71dw"]
+action = &"right"
+
+[sub_resource type="Shortcut" id="Shortcut_7pteb"]
+events = [SubResource("InputEventAction_n71dw")]
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_t263y")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("PlaceholderTexture2D_71kv2")
+
+[node name="Foreground" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_h2ga8")
+
+[node name="Hack" type="TextureButton" parent="Foreground"]
+offset_left = 744.0
+offset_top = 216.0
+offset_right = 1000.0
+offset_bottom = 432.0
+texture_normal = SubResource("GradientTexture2D_ldki0")
+
+[node name="Up" type="TextureButton" parent="Foreground"]
+offset_left = 304.0
+offset_top = 216.0
+offset_right = 432.0
+offset_bottom = 304.0
+shortcut = SubResource("Shortcut_akmqp")
+texture_normal = SubResource("GradientTexture2D_tpnwm")
+metadata/_edit_group_ = true
+
+[node name="Down" type="TextureButton" parent="Foreground"]
+offset_left = 304.0
+offset_top = 344.0
+offset_right = 432.0
+offset_bottom = 432.0
+shortcut = SubResource("Shortcut_acpyh")
+texture_normal = SubResource("GradientTexture2D_tpnwm")
+metadata/_edit_group_ = true
+
+[node name="Left" type="TextureButton" parent="Foreground"]
+offset_left = 136.0
+offset_top = 344.0
+offset_right = 264.0
+offset_bottom = 432.0
+shortcut = SubResource("Shortcut_iuj6p")
+texture_normal = SubResource("GradientTexture2D_tpnwm")
+metadata/_edit_group_ = true
+
+[node name="Right" type="TextureButton" parent="Foreground"]
+offset_left = 472.0
+offset_top = 344.0
+offset_right = 600.0
+offset_bottom = 432.0
+shortcut = SubResource("Shortcut_7pteb")
+texture_normal = SubResource("GradientTexture2D_tpnwm")
+metadata/_edit_group_ = true
