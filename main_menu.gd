@@ -24,9 +24,7 @@ func _process(delta: float) -> void:
 	if socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		while socket.get_available_packet_count():
 			log_message(socket.get_packet().get_string_from_ascii())
-func _exit_tree() -> void:
-	socket.close()
-	
+
 func _on_button_pressed() -> void:
 	if socket.connect_to_url(websocket_url) != OK:
 		log_message("Unable to connect.")
