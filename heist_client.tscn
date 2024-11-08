@@ -94,6 +94,7 @@ shortcut = SubResource("Shortcut_p7sma")
 
 [connection signal="pressed" from="Panel/UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="button_down" from="Panel/DownButton" to="." method="_on_down_button_button_down"]
+[connection signal="pressed" from="Panel/DownButton" to="." method="_on_down_button_pressed"]
 [connection signal="pressed" from="Panel/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Panel/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
