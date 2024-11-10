@@ -1,10 +1,10 @@
 [gd_scene load_steps=23 format=3 uid="uid://ct8t7ub2u0m7b"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_t263y"]
-[ext_resource type="Texture2D" uid="uid://bfbatleayv5b0" path="res://background left.png" id="2_app3f"]
+[ext_resource type="Texture2D" uid="uid://bfbatleayv5b0" path="res://textures/background left.png" id="2_app3f"]
 [ext_resource type="Texture2D" uid="uid://daey55m3dlxpg" path="res://textures/hack button.png" id="2_xsgem"]
 [ext_resource type="Texture2D" uid="uid://nsgqh1eux8t" path="res://textures/hack button pushed.png" id="3_7jo75"]
-[ext_resource type="Texture2D" uid="uid://dgvc2dbl3noqy" path="res://background right.png" id="3_ibh7y"]
+[ext_resource type="Texture2D" uid="uid://dgvc2dbl3noqy" path="res://textures/background right.png" id="3_ibh7y"]
 [ext_resource type="Texture2D" uid="uid://bcbtexkxtbx7s" path="res://textures/arrow up.png" id="4_ofoar"]
 [ext_resource type="Texture2D" uid="uid://bxvdohp5el6wq" path="res://textures/arrow up pushed.png" id="5_ypbpd"]
 [ext_resource type="Texture2D" uid="uid://bxgdov8xudesy" path="res://textures/arrow down.png" id="6_fqres"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cvkp4lg380ax2" path="res://textures/arrow right.png" id="10_j6mxm"]
 [ext_resource type="Texture2D" uid="uid://db3ea4qwyrdv3" path="res://textures/arrow right pushed.png" id="11_wsklw"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2ga8"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jbuyn"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_r7ypf"]
 action = &"up"
@@ -57,9 +57,10 @@ texture = ExtResource("3_ibh7y")
 [node name="Foreground" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("PlaceholderTexture2D_h2ga8")
+texture = SubResource("PlaceholderTexture2D_jbuyn")
 
 [node name="Hack" type="TextureButton" parent="Foreground"]
+layout_mode = 0
 offset_left = 744.0
 offset_top = 216.0
 offset_right = 1000.0
@@ -68,6 +69,7 @@ texture_normal = ExtResource("2_xsgem")
 texture_pressed = ExtResource("3_7jo75")
 
 [node name="Up" type="TextureButton" parent="Foreground"]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 216.0
 offset_right = 432.0
@@ -78,6 +80,7 @@ texture_pressed = ExtResource("5_ypbpd")
 metadata/_edit_group_ = true
 
 [node name="Down" type="TextureButton" parent="Foreground"]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 344.0
 offset_right = 432.0
@@ -88,6 +91,7 @@ texture_pressed = ExtResource("7_8mimh")
 metadata/_edit_group_ = true
 
 [node name="Left" type="TextureButton" parent="Foreground"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 344.0
 offset_right = 264.0
@@ -98,6 +102,7 @@ texture_pressed = ExtResource("9_nsjtx")
 metadata/_edit_group_ = true
 
 [node name="Right" type="TextureButton" parent="Foreground"]
+layout_mode = 0
 offset_left = 472.0
 offset_top = 344.0
 offset_right = 600.0
