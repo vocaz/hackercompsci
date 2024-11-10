@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://ct8t7ub2u0m7b"]
+[gd_scene load_steps=23 format=3 uid="uid://ct8t7ub2u0m7b"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_t263y"]
+[ext_resource type="Texture2D" uid="uid://bfbatleayv5b0" path="res://background left.png" id="2_app3f"]
 [ext_resource type="Texture2D" uid="uid://daey55m3dlxpg" path="res://textures/hack button.png" id="2_xsgem"]
 [ext_resource type="Texture2D" uid="uid://nsgqh1eux8t" path="res://textures/hack button pushed.png" id="3_7jo75"]
+[ext_resource type="Texture2D" uid="uid://dgvc2dbl3noqy" path="res://background right.png" id="3_ibh7y"]
 [ext_resource type="Texture2D" uid="uid://bcbtexkxtbx7s" path="res://textures/arrow up.png" id="4_ofoar"]
 [ext_resource type="Texture2D" uid="uid://bxvdohp5el6wq" path="res://textures/arrow up pushed.png" id="5_ypbpd"]
 [ext_resource type="Texture2D" uid="uid://bxgdov8xudesy" path="res://textures/arrow down.png" id="6_fqres"]
@@ -11,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://cq8ak7rfd7lf7" path="res://textures/arrow left pushed.png" id="9_nsjtx"]
 [ext_resource type="Texture2D" uid="uid://cvkp4lg380ax2" path="res://textures/arrow right.png" id="10_j6mxm"]
 [ext_resource type="Texture2D" uid="uid://db3ea4qwyrdv3" path="res://textures/arrow right pushed.png" id="11_wsklw"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_71kv2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h2ga8"]
 
@@ -43,10 +43,16 @@ events = [SubResource("InputEventAction_n71dw")]
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_t263y")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background right" type="TextureRect" parent="."]
+offset_right = 576.0
+offset_bottom = 648.0
+texture = ExtResource("2_app3f")
+
+[node name="Background left" type="TextureRect" parent="."]
+offset_left = 576.0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = SubResource("PlaceholderTexture2D_71kv2")
+texture = ExtResource("3_ibh7y")
 
 [node name="Foreground" type="TextureRect" parent="."]
 offset_right = 40.0
