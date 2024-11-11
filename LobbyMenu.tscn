@@ -83,3 +83,11 @@ grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("3_x277g")
 texture_pressed = ExtResource("4_hi5pm")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 160.0
+offset_right = 1016.0
+offset_bottom = 440.0
+text = "[explanation]"
