@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4sebowmqacm"]
+[gd_scene load_steps=8 format=3 uid="uid://b4sebowmqacm"]
 
 [ext_resource type="Script" path="res://lobby_menu.gd" id="1_tfjtp"]
 [ext_resource type="Texture2D" uid="uid://bd02gk3ddnt2b" path="res://textures/lobby background full.png" id="2_yb5v5"]
+[ext_resource type="Texture2D" uid="uid://dspr3jsi5s5mt" path="res://textures/connect button.png" id="3_x277g"]
+[ext_resource type="Texture2D" uid="uid://c1x4dt3gkplor" path="res://textures/connect button pushed.png" id="4_hi5pm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be3ls"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11,25 +13,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2882"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqpke"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="GDScript" id="GDScript_4kwpb"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1gfhm"]
 
 [node name="LobbyMenu" type="Control"]
 layout_mode = 3
@@ -41,12 +24,10 @@ grow_vertical = 2
 script = ExtResource("1_tfjtp")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Background" type="TextureRect" parent="Panel"]
-layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_yb5v5")
@@ -54,9 +35,9 @@ texture = ExtResource("2_yb5v5")
 [node name="TextEdit" type="TextEdit" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 120.0
+offset_top = 80.0
 offset_right = 216.0
-offset_bottom = 168.0
+offset_bottom = 128.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_be3ls")
@@ -65,9 +46,9 @@ text = "Name:"
 [node name="TextEdit2" type="TextEdit" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 256.0
+offset_top = 216.0
 offset_right = 224.0
-offset_bottom = 304.0
+offset_bottom = 264.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ht44e")
@@ -76,15 +57,15 @@ text = "Icon:"
 [node name="TextEdit3" type="TextEdit" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 120.0
-offset_top = 392.0
+offset_top = 352.0
 offset_right = 288.0
-offset_bottom = 440.0
+offset_bottom = 400.0
 theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_r2882")
 text = "Server URL:"
 
-[node name="Button" type="Button" parent="."]
+[node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -92,21 +73,10 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -120.0
-offset_top = -120.0
+offset_top = -128.0
 offset_right = 120.0
-offset_bottom = -66.0
+offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-theme_override_styles/normal = SubResource("StyleBoxFlat_xqpke")
-text = "Connect"
-script = SubResource("GDScript_4kwpb")
-
-[node name="TextureButton" type="TextureButton" parent="Button"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = SubResource("PlaceholderTexture2D_1gfhm")
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+texture_normal = ExtResource("3_x277g")
+texture_pressed = ExtResource("4_hi5pm")
