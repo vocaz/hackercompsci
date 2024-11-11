@@ -34,3 +34,19 @@ func _process(delta: float) -> void:
 					log_message("Here is the environment around your character: ")
 					print(response["response"])
 			log_message(socket.get_packet().get_string_from_ascii())
+
+func _on_up_pressed() -> void:
+	var instruction = {"action":"move", "direction":"up"}# Replace with function body.
+	send(instruction)
+
+
+func _on_right_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_down_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_left_pressed() -> void:
+	pass # Replace with function body.
