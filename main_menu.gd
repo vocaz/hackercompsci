@@ -8,9 +8,11 @@ var role = "lockpick"
 var socket := WebSocketPeer.new()
 var connected := false
 
-func send(message: String):
+func send(instruction: Dictionary):
 	#socket.put_packet(message.to_utf8_buffer())
-	socket.send_text(message)
+	instruction["role"] = role
+	instruction["version"] = api_version
+	socket.send_text(JSON.stringify(instruction))
 	
 func log_message(message: String) -> void:
 	var time := "%s | " % Time.get_time_string_from_system()
@@ -41,12 +43,14 @@ func _on_up_pressed() -> void:
 
 
 func _on_right_pressed() -> void:
-	pass # Replace with function body.
+	var instruction = {"action":"move", "direction":"right"}# Replace with function body.
+	send(instruction)# Replace with function body.
 
 
 func _on_down_pressed() -> void:
-	pass # Replace with function body.
-
+	var instruction = {"action":"move", "direction":"down"}# Replace with function body.
+	send(instruction)# Replace with function body.
 
 func _on_left_pressed() -> void:
-	pass # Replace with function body.
+	var instruction = {"action":"move", "direction":"left"}# Replace with function body.
+	send(instruction)# Replace with function body.

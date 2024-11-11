@@ -113,3 +113,6 @@ texture_pressed = ExtResource("11_wsklw")
 metadata/_edit_group_ = true
 
 [connection signal="pressed" from="Foreground/Up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="Foreground/Down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="Foreground/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Foreground/Right" to="." method="_on_right_pressed"]

@@ -8,9 +8,12 @@ var role = "lockpick"
 var socket := WebSocketPeer.new()
 var connected := false
 
-func send(message: String):
+func send(instruction: Dictionary):
 	#socket.put_packet(message.to_utf8_buffer())
-	socket.send_text(message)
+	instruction["role"] = role
+	instruction["version"] = api_version
+	socket.send_text(JSON.stringify(instruction))
+	
 
 func log_message(message: String) -> void:
 	var time := "%s | " % Time.get_time_string_from_system()

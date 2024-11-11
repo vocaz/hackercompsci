@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hackercompsci"
-run/main_scene="res://Main Menu.tscn"
+run/main_scene="res://LobbyMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
