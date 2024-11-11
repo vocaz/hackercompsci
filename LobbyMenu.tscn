@@ -32,10 +32,12 @@ grow_vertical = 2
 script = ExtResource("1_tfjtp")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_7pmem")
@@ -64,3 +66,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = SubResource("PlaceholderTexture2D_1gfhm")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
