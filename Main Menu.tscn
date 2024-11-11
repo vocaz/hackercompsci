@@ -47,11 +47,13 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = ExtResource("2_8mjhe")
 
 [node name="Foreground" type="TextureRect" parent="Panel"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("PlaceholderTexture2D_jbuyn")
@@ -108,8 +110,3 @@ shortcut = SubResource("Shortcut_7pteb")
 texture_normal = ExtResource("10_j6mxm")
 texture_pressed = ExtResource("11_wsklw")
 metadata/_edit_group_ = true
-
-[connection signal="pressed" from="Foreground/Up" to="." method="_on_up_pressed"]
-[connection signal="pressed" from="Foreground/Down" to="." method="_on_down_pressed"]
-[connection signal="pressed" from="Foreground/Left" to="." method="_on_left_pressed"]
-[connection signal="pressed" from="Foreground/Right" to="." method="_on_right_pressed"]
