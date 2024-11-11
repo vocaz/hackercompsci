@@ -1,5 +1,5 @@
 extends Control
-var websocket_url := "ws://127.0.0.1:9876"
+var websocket_url := "ws://10.202.182.8:9876"
 
 var socket := WebSocketPeer.new()
 
@@ -13,7 +13,6 @@ func log_message(message: String) -> void:
 	print(time + message)
 func _ready() -> void:
 	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -37,3 +36,4 @@ func _on_button_pressed() -> void:
 		#initial connection string - sub "lockpick" for selected role
 		send("join|lockpick")
 		print("Connected!")
+		get_tree().change_scene_to_file("res://Main Menu.tscn")
