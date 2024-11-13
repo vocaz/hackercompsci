@@ -31,41 +31,33 @@ texture = ExtResource("2_yb5v5")
 [node name="LineEdit" type="LineEdit" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 168.0
-offset_right = 288.0
-offset_bottom = 216.0
+offset_top = 200.0
+offset_right = 360.0
+offset_bottom = 248.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_5aawx")
 
 [node name="LineEdit2" type="LineEdit" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 456.0
-offset_right = 288.0
-offset_bottom = 504.0
+offset_top = 368.0
+offset_right = 360.0
+offset_bottom = 416.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_5aawx")
 
 [node name="Name Label" type="Label" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 136.0
+offset_top = 168.0
 offset_right = 192.0
-offset_bottom = 159.0
+offset_bottom = 191.0
 text = "Name:"
-
-[node name="Icon Label" type="Label" parent="Panel/Background"]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 288.0
-offset_right = 200.0
-offset_bottom = 311.0
-text = "Icon:"
 
 [node name="Server URL Label" type="Label" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 128.0
-offset_top = 432.0
-offset_right = 192.0
-offset_bottom = 455.0
+offset_top = 344.0
+offset_right = 217.0
+offset_bottom = 367.0
 text = "Server URL:"
 
 [node name="TextureButton" type="TextureButton" parent="Panel"]
@@ -86,8 +78,10 @@ texture_pressed = ExtResource("4_hi5pm")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 632.0
-offset_top = 160.0
-offset_right = 1016.0
-offset_bottom = 440.0
+offset_left = 656.0
+offset_top = 168.0
+offset_right = 1040.0
+offset_bottom = 448.0
 text = "[explanation]"
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_button_pressed"]
