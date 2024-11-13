@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4sebowmqacm"]
+
+[ext_resource type="Script" path="res://lobby_menu.gd" id="1_tfjtp"]
+[ext_resource type="Texture2D" uid="uid://bd02gk3ddnt2b" path="res://textures/lobby background full.png" id="2_yb5v5"]
+[ext_resource type="Texture2D" uid="uid://dspr3jsi5s5mt" path="res://textures/connect button.png" id="3_x277g"]
+[ext_resource type="Texture2D" uid="uid://c1x4dt3gkplor" path="res://textures/connect button pushed.png" id="4_hi5pm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5aawx"]
+bg_color = Color(1, 1, 1, 0.517647)
+
+[node name="LobbyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tfjtp")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Background" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_yb5v5")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 200.0
+offset_right = 360.0
+offset_bottom = 248.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5aawx")
+
+[node name="LineEdit2" type="LineEdit" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 368.0
+offset_right = 360.0
+offset_bottom = 416.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5aawx")
+
+[node name="Name Label" type="Label" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 168.0
+offset_right = 192.0
+offset_bottom = 191.0
+text = "Name:"
+
+[node name="Server URL Label" type="Label" parent="Panel/Background"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 344.0
+offset_right = 217.0
+offset_bottom = 367.0
+text = "Server URL:"
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -128.0
+offset_right = 120.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_x277g")
+texture_pressed = ExtResource("4_hi5pm")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 168.0
+offset_right = 1040.0
+offset_bottom = 448.0
+text = "[explanation]"
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_button_pressed"]
