@@ -1,6 +1,6 @@
 extends Control
 
-var websocket_url := "ws://10.202.182.8:9876"
+var websocket_url := "ws://10.184.1.173:9876"
 var api_version = "1.01"
 var client_type = "godot"
 var role = "lockpick"
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 			log_message(socket.get_packet().get_string_from_ascii())
 
 
-func _on_button_pressed() -> void:
+func _on_texture_button_pressed() -> void:
 	if socket.connect_to_url(websocket_url) != OK:
 		log_message("Unable to connect.")
 		set_process(false)

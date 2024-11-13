@@ -1,6 +1,6 @@
 extends Node2D
 
-var websocket_url := "ws://10.202.182.8:9876"
+var websocket_url := "ws://10.184.1.173:9876"
 var api_version = "1.01"
 var client_type = "godot"
 var role = "lockpick"
