@@ -8,6 +8,7 @@ var role = "lockpick"
 var socket := WebSocketPeer.new()
 var connected := false
 
+
 func send(instruction: Dictionary):
 	#socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = role
@@ -19,7 +20,8 @@ func log_message(message: String) -> void:
 	var time := "%s | " % Time.get_time_string_from_system()
 	print(time + message)
 func _ready() -> void:
-	pass # Replace with function body.
+	Globals.playerName = $Panel/Background/LineEdit.text
+	print(Globals.playerName)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
