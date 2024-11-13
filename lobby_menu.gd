@@ -1,6 +1,5 @@
 extends Control
 
-var websocket_url := "ws://10.202.182.8:9876"
 var api_version = "1.01"
 var client_type = "godot"
 var role = "lockpick"
@@ -20,8 +19,7 @@ func log_message(message: String) -> void:
 	var time := "%s | " % Time.get_time_string_from_system()
 	print(time + message)
 func _ready() -> void:
-	Globals.playerName = $Panel/Background/LineEdit.text
-	print(Globals.playerName)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -40,6 +38,15 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	Globals.playerName = $Panel/Background/LineEdit.text
+	print(Globals.playerName)
+	
+	Globals.serverIP = $Panel/Background/LineEdit2.text
+	print(Globals.serverIP)
+	
+	var websocket_url := "ws://%s:9876" % [str(Globals.serverIP)]
+	print(websocket_url)
+	
 	if socket.connect_to_url(websocket_url) != OK:
 		log_message("Unable to connect.")
 		set_process(false)
