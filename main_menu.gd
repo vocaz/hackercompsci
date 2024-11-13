@@ -1,16 +1,13 @@
 extends Node2D
 
-var websocket_url := "ws://10.202.182.8:9876"
-var api_version = "1.01"
-var client_type = "godot"
-var role = "lockpick"
+
 
 var connected := false
 
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
-	instruction["role"] = role
-	instruction["version"] = api_version
+	instruction["role"] = Globals.role
+	instruction["version"] = Globals.api_version
 	Globals.socket.send_text(JSON.stringify(instruction))
 	
 func log_message(message: String) -> void:

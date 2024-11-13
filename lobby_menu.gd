@@ -1,16 +1,13 @@
 extends Control
 
-var api_version = "1.01"
-var client_type = "godot"
-var role = "lockpick"
 
 var connected := false
 
 
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
-	instruction["role"] = role
-	instruction["version"] = api_version
+	instruction["role"] = Globals.role
+	instruction["version"] = Globals.api_version
 	Globals.socket.send_text(JSON.stringify(instruction))
 	
 
@@ -56,7 +53,7 @@ func _on_button_pressed() -> void:
 			state = Globals.socket.get_ready_state() 
 			Globals.socket.poll()
 		connected = true
-		#initial connection string - sub "lockpick" for selected role
+		#initial connection string - sub "lockpick" for selected Globals.role
 		var instruction = {"action":"join"}
 		send(instruction)
 		print("Connected!")
