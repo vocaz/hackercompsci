@@ -40,17 +40,21 @@ func _process(delta: float) -> void:
 func _on_up_pressed() -> void:
 	var instruction = {"action":"move", "direction":"up"}# Replace with function body.
 	send(instruction)
+	print(instruction)
 
 
 func _on_right_pressed() -> void:
 	var instruction = {"action":"move", "direction":"right"}# Replace with function body.
 	send(instruction)# Replace with function body.
-
+	print(instruction)
 
 func _on_down_pressed() -> void:
 	var instruction = {"action":"move", "direction":"down"}# Replace with function body.
 	send(instruction)# Replace with function body.
+	print(instruction)
+	
 
 func _on_left_pressed() -> void:
 	var instruction = {"action":"move", "direction":"left"}# Replace with function body.
 	send(instruction)# Replace with function body.
+	print(instruction)
