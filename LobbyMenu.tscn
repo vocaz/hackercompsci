@@ -56,7 +56,6 @@ offset_right = 192.0
 offset_bottom = 191.0
 text = "Name:"
 
-
 [node name="Server URL Label" type="Label" parent="Panel/Background"]
 layout_mode = 0
 offset_left = 128.0
