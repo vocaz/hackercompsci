@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2w4sqcewlhm7"]
+
+[ext_resource type="PackedScene" uid="uid://vsvljun48efe" path="res://map_1.tscn" id="1_hsyik"]
+[ext_resource type="PackedScene" uid="uid://bw67uj1fam6s6" path="res://testcharacter.tscn" id="2_sjidf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" parent="." instance=ExtResource("1_hsyik")]
+
+[node name="testcharacter" parent="." instance=ExtResource("2_sjidf")]
+position = Vector2(475, 475)
+
+[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@57565" to="TileMapLayer/@Area2D@57565" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@57566" to="TileMapLayer/@Area2D@57566" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@57567" to="TileMapLayer/@Area2D@57567" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@57568" to="TileMapLayer/@Area2D@57568" method="_on_body_entered"]

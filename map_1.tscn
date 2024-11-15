@@ -1,20 +1,25 @@
-[gd_scene load_steps=8 format=4 uid="uid://vsvljun48efe"]
+[gd_scene load_steps=10 format=4 uid="uid://vsvljun48efe"]
 
 [ext_resource type="Texture2D" uid="uid://14eynasv83vj" path="res://textures/button base pushed.png" id="1_pw74q"]
 [ext_resource type="Texture2D" uid="uid://mohyyifbst6p" path="res://textures/arrow button base.png" id="2_81qfv"]
 [ext_resource type="Texture2D" uid="uid://bfbatleayv5b0" path="res://textures/background left.png" id="3_q8kpk"]
+[ext_resource type="PackedScene" uid="uid://dfad522bayha8" path="res://goal.tscn" id="4_ec7to"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epm3p"]
 texture = ExtResource("1_pw74q")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v01rx"]
 texture = ExtResource("2_81qfv")
 texture_region_size = Vector2i(50, 50)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdpc3"]
 texture = ExtResource("3_q8kpk")
@@ -152,12 +157,17 @@ texture_region_size = Vector2i(50, 50)
 9:11/0 = 0
 10:11/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_trha3"]
+scenes/1/scene = ExtResource("4_ec7to")
+
 [sub_resource type="TileSet" id="TileSet_by4gh"]
 tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_epm3p")
 sources/3 = SubResource("TileSetAtlasSource_v01rx")
 sources/4 = SubResource("TileSetAtlasSource_cdpc3")
+sources/5 = SubResource("TileSetScenesCollectionSource_trha3")
 
 [node name="TileMapLayer" type="TileMapLayer"]
-tile_map_data = PackedByteArray("AAABAAAAAwAAAAAAAAAAAAQAAwAAAAAAAAD/////AgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAD//wMAAgAAAAAAAAD//wQAAgAAAAAAAAD//wUAAgAAAAAAAAD//wYAAgAAAAAAAAD//wcAAgAAAAAAAAD//wgAAgAAAAAAAAD//wkAAgAAAAAAAAD//woAAgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAAIAAAAAwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAAwAAAAAAAAACAAkAAwAAAAAAAAADAAUAAwAAAAAAAAAFAAQAAwAAAAAAAAAFAAMAAwAAAAAAAAAGAAMAAwAAAAAAAAAHAAgAAwAAAAAAAAAHAAcAAwAAAAAAAAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAAAAgAAAAAAAAAKAAEAAgAAAAAAAAAKAAIAAgAAAAAAAAAKAAMAAgAAAAAAAAAKAAQAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAAKAAkAAgAAAAAAAAAKAAoAAgAAAAAAAAAAAAUABAAAAAQAAAACAAAABAAAAAQAAAAJAAAABAAAAAQAAAAGAAQABAAAAAQAAAA=")
+tile_map_data = PackedByteArray("AAABAAAAAwAAAAAAAAAAAAQAAwAAAAAAAAD/////AgAAAAAAAAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAD//wMAAgAAAAAAAAD//wQAAgAAAAAAAAD//wUAAgAAAAAAAAD//wYAAgAAAAAAAAD//wcAAgAAAAAAAAD//wgAAgAAAAAAAAD//wkAAgAAAAAAAAD//woAAgAAAAAAAAAAAP//AgAAAAAAAAABAP//AgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAAIAAAAAwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAAwAAAAAAAAACAAkAAwAAAAAAAAADAAUAAwAAAAAAAAAFAAQAAwAAAAAAAAAFAAMAAwAAAAAAAAAGAAMAAwAAAAAAAAAHAAgAAwAAAAAAAAAHAAcAAwAAAAAAAAAAAAoAAgAAAAAAAAABAAoAAgAAAAAAAAACAAoAAgAAAAAAAAADAAoAAgAAAAAAAAAEAAoAAgAAAAAAAAAFAAoAAgAAAAAAAAAGAAoAAgAAAAAAAAAHAAoAAgAAAAAAAAAIAAoAAgAAAAAAAAAJAAoAAgAAAAAAAAAKAAAAAgAAAAAAAAAKAAEAAgAAAAAAAAAKAAIAAgAAAAAAAAAKAAMAAgAAAAAAAAAKAAQAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAAKAAgAAgAAAAAAAAAKAAkAAgAAAAAAAAAKAAoAAgAAAAAAAAAAAAUABQAAAAAAAQACAAAABQAAAAAAAQAJAAAABQAAAAAAAQAGAAQABQAAAAAAAQADAAkABQAAAAAAAQA=")
 tile_set = SubResource("TileSet_by4gh")

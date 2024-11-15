@@ -54,7 +54,6 @@ texture = ExtResource("2_8mjhe")
 
 [node name="Foreground" type="TextureRect" parent="Panel"]
 layout_mode = 0
-
 offset_right = 1153.0
 offset_bottom = 649.0
 texture = SubResource("ImageTexture_il423")
