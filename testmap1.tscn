@@ -11,7 +11,7 @@
 position = Vector2(475, 475)
 
 [connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@57565" to="TileMapLayer/@Area2D@57565" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@57566" to="TileMapLayer/@Area2D@57566" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@57567" to="TileMapLayer/@Area2D@57567" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@57568" to="TileMapLayer/@Area2D@57568" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@22294" to="TileMapLayer/@Area2D@22294" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@22295" to="TileMapLayer/@Area2D@22295" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@22296" to="TileMapLayer/@Area2D@22296" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@22297" to="TileMapLayer/@Area2D@22297" method="_on_body_entered"]

@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	$Sprite2D.texture = load("res://textures/arrow down pushed.png")
+	$Sprite2D.texture = load("res://textures/goal green.png")
