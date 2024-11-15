@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bgaysj3ffb4bc" path="res://maze border.png" id="1_h1v1d"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5g4dj"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_18gjb"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dnryu"]
 
@@ -13,10 +13,11 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Background" type="TextureRect" parent="Panel"]
+self_modulate = Color(0.129412, 0.129412, 0.129412, 1)
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = SubResource("PlaceholderTexture2D_5g4dj")
+texture = SubResource("CanvasTexture_18gjb")
 
 [node name="MazeBorder" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -40,9 +41,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
+offset_left = -248.0
 offset_top = -250.0
-offset_right = 250.0
+offset_right = 252.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
