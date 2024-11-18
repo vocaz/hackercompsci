@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfad522bayha8"]
 
-[ext_resource type="Script" path="res://area_2d.gd" id="1_dhbvt"]
+[ext_resource type="Script" path="res://mazegoal.gd" id="1_smafs"]
 [ext_resource type="Texture2D" uid="uid://b4k7wo5savj0b" path="res://textures/goal red.png" id="2_oxg1u"]
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_dhbvt")
+script = ExtResource("1_smafs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_oxg1u")
@@ -13,4 +13,5 @@ texture = ExtResource("2_oxg1u")
 scale = Vector2(0.25, 0.25)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="." method="area_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
