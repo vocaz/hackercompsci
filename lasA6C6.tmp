@@ -3,19 +3,17 @@
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
 [ext_resource type="Script" path="res://rich_text_label.gd" id="2_e3ili"]
 
-[sub_resource type="SystemFont" id="SystemFont_j7ak1"]
-
-[sub_resource type="Theme" id="Theme_s7hvn"]
-RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
-RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k2d28"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_20q3b"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_7p4im"]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_ry6ep"]
+
+[sub_resource type="SystemFont" id="SystemFont_8qs1x"]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
@@ -24,24 +22,13 @@ script = ExtResource("1_65tx1")
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_left = 369.0
-offset_top = 338.0
-offset_right = 520.0
-offset_bottom = 487.0
-theme = SubResource("Theme_s7hvn")
-script = ExtResource("2_e3ili")
-
 [node name="Background" type="TextureRect" parent="Panel"]
-visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("PlaceholderTexture2D_k2d28")
 
 [node name="Laser background" type="TextureRect" parent="Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -54,7 +41,6 @@ grow_horizontal = 2
 texture = SubResource("CanvasTexture_xpli7")
 
 [node name="Laser foreground" type="TextureRect" parent="Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -66,6 +52,14 @@ offset_bottom = 240.0
 grow_horizontal = 2
 texture = SubResource("PlaceholderTexture2D_20q3b")
 
+[node name="Guard box" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 336.0
+offset_right = 520.0
+offset_bottom = 488.0
+texture = SubResource("CanvasTexture_7p4im")
+
 [node name="Player box" type="TextureRect" parent="Panel"]
 layout_mode = 0
 offset_left = 632.0
@@ -73,3 +67,12 @@ offset_top = 336.0
 offset_right = 784.0
 offset_bottom = 488.0
 texture = SubResource("CanvasTexture_ry6ep")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 338.0
+offset_right = 520.0
+offset_bottom = 487.0
+theme_override_fonts/normal_font = SubResource("SystemFont_8qs1x")
+script = ExtResource("2_e3ili")
