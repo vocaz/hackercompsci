@@ -8,10 +8,15 @@
 [node name="TileMapLayer" parent="." instance=ExtResource("1_hsyik")]
 
 [node name="testcharacter" parent="." instance=ExtResource("2_sjidf")]
-position = Vector2(475, 475)
+position = Vector2(26, 25)
 
-[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@22294" to="TileMapLayer/@Area2D@22294" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@22295" to="TileMapLayer/@Area2D@22295" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@22296" to="TileMapLayer/@Area2D@22296" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/@Area2D@22297" to="TileMapLayer/@Area2D@22297" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@105457" to="TileMapLayer/@Area2D@105457" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@105457" to="TileMapLayer/@Area2D@105457" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@105458" to="TileMapLayer/@Area2D@105458" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@105458" to="TileMapLayer/@Area2D@105458" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@105459" to="TileMapLayer/@Area2D@105459" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@105459" to="TileMapLayer/@Area2D@105459" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@105460" to="TileMapLayer/@Area2D@105460" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@105460" to="TileMapLayer/@Area2D@105460" method="_on_body_exited"]
