@@ -8,5 +8,5 @@ func genSequence(length: int) -> String:
 		result += ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()]
 	return result
 func _ready():
-	for i in range(25):
-		print(genSequence(8))
+	pass
+	
