@@ -9,3 +9,14 @@
 
 [node name="testcharacter" parent="." instance=ExtResource("2_v6v4b")]
 position = Vector2(326, 274)
+
+[connection signal="body_entered" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/Area2D" to="TileMapLayer/Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@30237" to="TileMapLayer/@Area2D@30237" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@30237" to="TileMapLayer/@Area2D@30237" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@30238" to="TileMapLayer/@Area2D@30238" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@30238" to="TileMapLayer/@Area2D@30238" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@30239" to="TileMapLayer/@Area2D@30239" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@30239" to="TileMapLayer/@Area2D@30239" method="_on_body_exited"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@30240" to="TileMapLayer/@Area2D@30240" method="area_entered"]
+[connection signal="body_exited" from="TileMapLayer/@Area2D@30240" to="TileMapLayer/@Area2D@30240" method="_on_body_exited"]
