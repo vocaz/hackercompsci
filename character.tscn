@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw67uj1fam6s6"]
+[gd_scene load_steps=3 format=3 uid="uid://c6lhmenp7ygel"]
 
-[ext_resource type="Script" path="res://testcharacter.gd" id="1_l7sbm"]
-[ext_resource type="Texture2D" uid="uid://d2fka7d822pjy" path="res://textures/icon.png" id="2_bo5jq"]
+[ext_resource type="Script" path="res://testcharacter.gd" id="1_gybk3"]
+[ext_resource type="Texture2D" uid="uid://d2fka7d822pjy" path="res://textures/icon.png" id="2_yp848"]
 
 [node name="character" type="CharacterBody2D"]
-script = ExtResource("1_l7sbm")
+script = ExtResource("1_gybk3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_bo5jq")
+texture = ExtResource("2_yp848")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 scale = Vector2(0.35, 0.35)

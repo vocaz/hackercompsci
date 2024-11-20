@@ -111,6 +111,7 @@ texture_normal = ExtResource("10_j6mxm")
 texture_pressed = ExtResource("11_wsklw")
 metadata/_edit_group_ = true
 
+[connection signal="pressed" from="Panel/Foreground/Hack" to="." method="_on_hack_pressed"]
 [connection signal="pressed" from="Panel/Foreground/Up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="Panel/Foreground/Down" to="." method="_on_down_pressed"]
 [connection signal="pressed" from="Panel/Foreground/Left" to="." method="_on_left_pressed"]
