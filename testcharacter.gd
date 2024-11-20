@@ -5,13 +5,20 @@ extends CharacterBody2D
 func _ready() -> void:
 	pass # Replace with function body.
 
+func check_goal():
+	$RayCast2D.force_raycast_update()
+	if $RayCast2D.is_colliding():
+		$RayCast2D.get_collider().goal_get()
+
 func go_in_direction(dir):
 	var done := false
 	while not done:
+		check_goal()
 		if not move_and_collide(dir*50, true):
 			position += dir*50
 		else:
 			done = true
+	check_goal()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

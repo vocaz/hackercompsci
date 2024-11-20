@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b4k7wo5savj0b" path="res://textures/goal red.png" id="2_oxg1u"]
 
 [node name="Area2D" type="Area2D"]
+collision_layer = 5
 script = ExtResource("1_smafs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
