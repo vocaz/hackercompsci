@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=11 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
-[ext_resource type="Script" path="res://rich_text_label.gd" id="2_e3ili"]
+[ext_resource type="Script" path="res://inputsequence.gd" id="2_mna81"]
+[ext_resource type="Script" path="res://simonsequence.gd" id="3_5a3tw"]
 
 [sub_resource type="SystemFont" id="SystemFont_j7ak1"]
 
 [sub_resource type="Theme" id="Theme_s7hvn"]
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/font_sizes/normal_font_size = 80
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k2d28"]
@@ -17,21 +19,35 @@ RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ry6ep"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
+
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
 
 [node name="Panel" type="Panel" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = 6.0
+offset_top = -3.0
+offset_right = 1158.0
+offset_bottom = 645.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+offset_left = 738.0
+offset_top = 676.0
+offset_right = 890.0
+offset_bottom = 828.0
+theme = SubResource("Theme_s7hvn")
+bbcode_enabled = true
+script = ExtResource("2_mna81")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
 layout_mode = 0
 offset_left = 369.0
 offset_top = 338.0
-offset_right = 520.0
-offset_bottom = 487.0
+offset_right = 521.0
+offset_bottom = 490.0
 theme = SubResource("Theme_s7hvn")
-script = ExtResource("2_e3ili")
+bbcode_enabled = true
+script = ExtResource("3_5a3tw")
 
 [node name="Background" type="TextureRect" parent="Panel"]
 visible = false
@@ -73,3 +89,11 @@ offset_top = 336.0
 offset_right = 784.0
 offset_bottom = 488.0
 texture = SubResource("CanvasTexture_ry6ep")
+
+[node name="Player box2" type="TextureRect" parent="Panel"]
+visible = false
+offset_left = 369.0
+offset_top = 338.0
+offset_right = 521.0
+offset_bottom = 490.0
+texture = SubResource("CanvasTexture_ya8al")

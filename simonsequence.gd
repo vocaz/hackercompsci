@@ -1,16 +1,14 @@
 extends RichTextLabel
-var seq = ["s","d","v"]
 func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
+	await get_tree().create_timer(seconds,false).timeout
 
 func showSequence(sequence):
-	for i in range(0,len(sequence)):
-		print(i)
-		set_text(str(sequence[i]))
-		wait(5)
+	for i in sequence:
+		set_text("[center]%s[/center]" % [str(i)])
+		await wait(1)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	showSequence(seq)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
