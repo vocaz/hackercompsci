@@ -14,6 +14,7 @@ func log_message(message: String) -> void:
 	print(time + message)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Panel/Foreground/Hack.set_disabled(true)
 	pass # Replace with function body.
 
 
@@ -58,7 +59,6 @@ func _on_left_pressed() -> void:
 	send(instruction)# Replace with function body.
 
 func _on_hack_pressed() -> void:
-	
 	var instruction = {"action":"hack"}
 	send(instruction)
 	
