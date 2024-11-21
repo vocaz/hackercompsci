@@ -53,7 +53,6 @@ script = ExtResource("3_5a3tw")
 
 [node name="Background" type="TextureRect" parent="Panel"]
 modulate = Color(0.129412, 0.129412, 0.129412, 1)
-
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
