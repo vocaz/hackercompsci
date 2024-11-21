@@ -1,8 +1,9 @@
 extends Node2D
 
 
-
+var targethack = ""
 var connected := false
+var addresses = false
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
@@ -14,7 +15,6 @@ func log_message(message: String) -> void:
 	print(time + message)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Panel/Foreground/Hack.set_disabled(true)
 	pass # Replace with function body.
 
 
@@ -27,9 +27,10 @@ func _process(delta: float) -> void:
 			var server_message = Globals.socket.get_packet().get_string_from_ascii()
 			var server_response = JSON.new()
 			if server_response.parse(server_message) == OK:
+				$Panel/Foreground/Hack.set_disabled(true)
 				var response = server_response.data
+				print(response)
 				if response["type"] == "environment":
-					log_message("Here is the environment around your character: ")
 					var env = response["response"]
 					for space in env:
 						if space["actions"].has("hack"):
@@ -37,6 +38,10 @@ func _process(delta: float) -> void:
 							var templateAction = "There is a hackable %s in the %s direction"
 							var currentAction = templateAction % [space["type"],space["direction"]]
 							print(currentAction)
+							$Panel/Foreground/Hack.set_disabled(false)
+				if response["type"] == "begin_action":
+					var addresses = response["data"]
+					print(addresses)
 					
 					
 					
@@ -59,6 +64,5 @@ func _on_left_pressed() -> void:
 	send(instruction)# Replace with function body.
 
 func _on_hack_pressed() -> void:
-	var instruction = {"action":"hack"}
+	var instruction = {"action":"hack", "item":targethack, "state":"begin"}
 	send(instruction)
-	
