@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 							print(currentAction)
 					
 					
+					
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:

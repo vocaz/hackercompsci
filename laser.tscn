@@ -7,7 +7,7 @@
 [sub_resource type="SystemFont" id="SystemFont_j7ak1"]
 
 [sub_resource type="Theme" id="Theme_s7hvn"]
-RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 80
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
@@ -41,6 +41,7 @@ bbcode_enabled = true
 script = ExtResource("2_mna81")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+z_index = 1
 layout_mode = 0
 offset_left = 369.0
 offset_top = 338.0
@@ -52,6 +53,7 @@ script = ExtResource("3_5a3tw")
 
 [node name="Background" type="TextureRect" parent="Panel"]
 modulate = Color(0.129412, 0.129412, 0.129412, 1)
+
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -90,7 +92,6 @@ offset_bottom = 488.0
 texture = SubResource("CanvasTexture_ry6ep")
 
 [node name="Player box2" type="TextureRect" parent="Panel"]
-visible = false
 layout_mode = 0
 offset_left = 369.0
 offset_top = 338.0
