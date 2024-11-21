@@ -31,11 +31,8 @@ func _process(delta: float) -> void:
 				if response["type"] == "environment":
 					log_message("Here is the environment around your character: ")
 					print(response["response"])
-					for space in response:
-						var actions = response.get("actions")
-						if not actions.is_empty():
-							if actions.has("hack"):
-								print("Tile can be hacked")
+					
+					
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:
