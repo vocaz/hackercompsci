@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
 					log_message("Here is the environment around your character: ")
 					print(response["response"])
 					
-					
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:

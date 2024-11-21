@@ -31,6 +31,7 @@ offset_right = 1158.0
 offset_bottom = 645.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
 offset_left = 738.0
 offset_top = 676.0
 offset_right = 890.0
@@ -57,7 +58,6 @@ offset_bottom = 648.0
 texture = SubResource("PlaceholderTexture2D_k2d28")
 
 [node name="Laser background" type="TextureRect" parent="Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -70,7 +70,6 @@ grow_horizontal = 2
 texture = SubResource("CanvasTexture_xpli7")
 
 [node name="Laser foreground" type="TextureRect" parent="Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -92,6 +91,7 @@ texture = SubResource("CanvasTexture_ry6ep")
 
 [node name="Player box2" type="TextureRect" parent="Panel"]
 visible = false
+layout_mode = 0
 offset_left = 369.0
 offset_top = 338.0
 offset_right = 521.0
