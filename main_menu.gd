@@ -3,7 +3,6 @@ extends Node2D
 
 
 var connected := false
-
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
@@ -30,7 +29,14 @@ func _process(delta: float) -> void:
 				var response = server_response.data
 				if response["type"] == "environment":
 					log_message("Here is the environment around your character: ")
-					print(response["response"])
+					var env = response["response"]
+					for space in env:
+						if space["actions"].has("hack"):
+							var targethack = space["id"]
+							var templateAction = "There is a hackable %s in the %s direction"
+							var currentAction = templateAction % [space["type"],space["direction"]]
+							print(currentAction)
+					
 					
 					
 			log_message(Globals.socket.get_packet().get_string_from_ascii())

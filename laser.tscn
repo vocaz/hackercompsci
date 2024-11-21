@@ -31,6 +31,7 @@ offset_right = 1158.0
 offset_bottom = 645.0
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
 offset_left = 738.0
 offset_top = 676.0
 offset_right = 890.0
@@ -92,6 +93,7 @@ texture = SubResource("CanvasTexture_ry6ep")
 
 [node name="Player box2" type="TextureRect" parent="Panel"]
 visible = false
+layout_mode = 0
 offset_left = 369.0
 offset_top = 338.0
 offset_right = 521.0
