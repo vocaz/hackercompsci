@@ -29,12 +29,11 @@ func _process(delta: float) -> void:
 			if server_response.parse(server_message) == OK:
 				$Panel/Foreground/Hack.set_disabled(true)
 				var response = server_response.data
-				print(response)
 				if response["type"] == "environment":
 					var env = response["response"]
 					for space in env:
 						if space["actions"].has("hack"):
-							var targethack = space["id"]
+							var targethack = int(space["id"])
 							var templateAction = "There is a hackable %s in the %s direction"
 							var currentAction = templateAction % [space["type"],space["direction"]]
 							print(currentAction)
@@ -42,9 +41,6 @@ func _process(delta: float) -> void:
 				if response["type"] == "begin_action":
 					var addresses = response["data"]
 					print(addresses)
-					
-					
-					
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:

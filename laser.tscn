@@ -4,6 +4,14 @@
 [ext_resource type="Script" path="res://inputsequence.gd" id="2_mna81"]
 [ext_resource type="Script" path="res://simonsequence.gd" id="3_5a3tw"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_20q3b"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
+
 [sub_resource type="SystemFont" id="SystemFont_j7ak1"]
 
 [sub_resource type="Theme" id="Theme_s7hvn"]
@@ -11,89 +19,117 @@ RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 80
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_20q3b"]
-
 [sub_resource type="CanvasTexture" id="CanvasTexture_ry6ep"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
 
-[node name="Panel" type="Panel" parent="."]
-offset_left = 6.0
-offset_top = -3.0
-offset_right = 1158.0
-offset_bottom = 645.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Panel"]
-layout_mode = 0
-offset_left = 738.0
-offset_top = 676.0
-offset_right = 890.0
-offset_bottom = 828.0
-theme = SubResource("Theme_s7hvn")
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CanvasLayer/Panel"]
+modulate = Color(0.129412, 0.129412, 0.129412, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_juj6x")
+
+[node name="Countdown" type="RichTextLabel" parent="CanvasLayer/Panel"]
+z_index = 6
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 bbcode_enabled = true
-script = ExtResource("2_mna81")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Laser background" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+texture = SubResource("CanvasTexture_xpli7")
+
+[node name="Laser foreground" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Laser background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -68.0
+offset_right = 216.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_20q3b")
+
+[node name="Laser background2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+texture = SubResource("CanvasTexture_xpli7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Player box2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = SubResource("CanvasTexture_ya8al")
+
+[node name="Simon" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box2"]
 z_index = 1
-layout_mode = 0
-offset_left = 369.0
-offset_top = 338.0
-offset_right = 521.0
-offset_bottom = 490.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_s7hvn")
 bbcode_enabled = true
 script = ExtResource("3_5a3tw")
 
-[node name="Background" type="TextureRect" parent="Panel"]
-modulate = Color(0.129412, 0.129412, 0.129412, 1)
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = SubResource("CanvasTexture_juj6x")
+[node name="padding" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+texture = SubResource("CanvasTexture_ya8al")
 
-[node name="Laser background" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -232.0
-offset_top = 88.0
-offset_right = 232.0
-offset_bottom = 256.0
-grow_horizontal = 2
-texture = SubResource("CanvasTexture_xpli7")
-
-[node name="Laser foreground" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -216.0
-offset_top = 104.0
-offset_right = 216.0
-offset_bottom = 240.0
-grow_horizontal = 2
-texture = SubResource("PlaceholderTexture2D_20q3b")
-
-[node name="Player box" type="TextureRect" parent="Panel"]
-layout_mode = 0
-offset_left = 632.0
-offset_top = 336.0
-offset_right = 784.0
-offset_bottom = 488.0
+[node name="Player box" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
 texture = SubResource("CanvasTexture_ry6ep")
 
-[node name="Player box2" type="TextureRect" parent="Panel"]
-layout_mode = 0
-offset_left = 369.0
-offset_top = 338.0
-offset_right = 521.0
-offset_bottom = 490.0
-texture = SubResource("CanvasTexture_ya8al")
+[node name="PlayerInput" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s7hvn")
+bbcode_enabled = true
+script = ExtResource("2_mna81")
