@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=10 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
 [ext_resource type="Script" path="res://inputsequence.gd" id="2_mna81"]
 [ext_resource type="Script" path="res://simonsequence.gd" id="3_5a3tw"]
+[ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
 
