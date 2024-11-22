@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://ct8t7ub2u0m7b"]
+[gd_scene load_steps=23 format=3 uid="uid://ct8t7ub2u0m7b"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_t263y"]
 [ext_resource type="Texture2D" uid="uid://bd02gk3ddnt2b" path="res://textures/lobby background full.png" id="2_8mjhe"]
 [ext_resource type="Texture2D" uid="uid://daey55m3dlxpg" path="res://textures/hack button.png" id="2_xsgem"]
 [ext_resource type="Texture2D" uid="uid://nsgqh1eux8t" path="res://textures/hack button pushed.png" id="3_7jo75"]
 [ext_resource type="Texture2D" uid="uid://bcbtexkxtbx7s" path="res://textures/arrow up.png" id="4_ofoar"]
+[ext_resource type="Texture2D" uid="uid://bf4sesd742gty" path="res://textures/hack button deactivated.png" id="5_pqg8t"]
 [ext_resource type="Texture2D" uid="uid://bxvdohp5el6wq" path="res://textures/arrow up pushed.png" id="5_ypbpd"]
 [ext_resource type="Texture2D" uid="uid://bxgdov8xudesy" path="res://textures/arrow down.png" id="6_fqres"]
 [ext_resource type="Texture2D" uid="uid://dpx5fg7hki1mu" path="res://textures/arrow down pushed.png" id="7_8mimh"]
@@ -66,6 +67,7 @@ offset_right = 1000.0
 offset_bottom = 432.0
 texture_normal = ExtResource("2_xsgem")
 texture_pressed = ExtResource("3_7jo75")
+texture_disabled = ExtResource("5_pqg8t")
 
 [node name="Up" type="TextureButton" parent="Panel/Foreground"]
 layout_mode = 0
