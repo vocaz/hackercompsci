@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=10 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
 [ext_resource type="Script" path="res://inputsequence.gd" id="2_mna81"]
 [ext_resource type="Script" path="res://simonsequence.gd" id="3_5a3tw"]
+[ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
 
 [sub_resource type="SystemFont" id="SystemFont_j7ak1"]
 
@@ -16,10 +17,6 @@ RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 [sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_20q3b"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ry6ep"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
@@ -58,7 +55,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("CanvasTexture_juj6x")
 
-[node name="Laser background" type="TextureRect" parent="Panel"]
+[node name="Wall background" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -69,6 +66,18 @@ offset_right = 232.0
 offset_bottom = 256.0
 grow_horizontal = 2
 texture = SubResource("CanvasTexture_xpli7")
+
+[node name="Laser background" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -216.0
+offset_top = 104.0
+offset_right = 216.0
+offset_bottom = 240.0
+grow_horizontal = 2
+texture = SubResource("PlaceholderTexture2D_20q3b")
 
 [node name="Laser foreground" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -88,7 +97,7 @@ offset_left = 632.0
 offset_top = 336.0
 offset_right = 784.0
 offset_bottom = 488.0
-texture = SubResource("CanvasTexture_ry6ep")
+texture = ExtResource("4_0pbgt")
 
 [node name="Player box2" type="TextureRect" parent="Panel"]
 layout_mode = 0
@@ -96,4 +105,4 @@ offset_left = 369.0
 offset_top = 338.0
 offset_right = 521.0
 offset_bottom = 490.0
-texture = SubResource("CanvasTexture_ya8al")
+texture = ExtResource("4_0pbgt")
