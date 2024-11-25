@@ -81,11 +81,27 @@ texture_normal = ExtResource("3_x277g")
 texture_pressed = ExtResource("4_hi5pm")
 
 [node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 656.0
-offset_top = 168.0
-offset_right = 1040.0
-offset_bottom = 448.0
-text = "[explanation]"
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -148.0
+offset_right = -80.0
+offset_bottom = 156.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Welcome to our game!
+
+As the hacker you can disable lasers and cameras, and unlock doors for 30 seconds.
+
+Work with your team to successfully perform a heist in 10 minutes.
+
+Good luck!"
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="Panel/TextureButton" to="." method="_on_button_pressed"]

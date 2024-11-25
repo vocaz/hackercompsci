@@ -1,15 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=13 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
+[ext_resource type="Texture2D" uid="uid://b5b3bsbes0jpu" path="res://textures/wall.png" id="2_halbk"]
 [ext_resource type="Script" path="res://inputsequence.gd" id="2_mna81"]
 [ext_resource type="Script" path="res://simonsequence.gd" id="3_5a3tw"]
-[ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
+[ext_resource type="Texture2D" uid="uid://dl26kmc4ak4qf" path="res://textures/laser 2.png" id="3_cdahb"]
+[ext_resource type="Texture2D" uid="uid://cy8acgqpnattr" path="res://textures/laser 1.png" id="4_vw0t3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_20q3b"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
@@ -65,27 +65,42 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Laser background" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
+[node name="Wall" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-texture = SubResource("CanvasTexture_xpli7")
+texture = ExtResource("2_halbk")
 
-[node name="Laser foreground" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Laser background"]
+[node name="Laser background" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Wall"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -216.0
-offset_top = -68.0
-offset_right = 216.0
-offset_bottom = 68.0
+offset_left = -233.0
+offset_top = -81.0
+offset_right = 232.0
+offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("PlaceholderTexture2D_20q3b")
+texture = ExtResource("3_cdahb")
 
-[node name="Laser background2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
+[node name="Laser foreground2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Wall"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.5
+offset_top = -81.0
+offset_right = 231.5
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_vw0t3")
+
+[node name="idk" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2

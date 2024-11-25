@@ -62,3 +62,4 @@ func _on_left_pressed() -> void:
 func _on_hack_pressed() -> void:
 	var instruction = {"action":"hack", "item":targethack, "state":"begin"}
 	send(instruction)
+	
