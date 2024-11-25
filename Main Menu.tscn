@@ -113,14 +113,7 @@ texture_normal = ExtResource("10_j6mxm")
 texture_pressed = ExtResource("11_wsklw")
 metadata/_edit_group_ = true
 
-[node name="PopupMenu" type="PopupMenu" parent="Panel"]
-visible = true
-item_count = 2
-item_0/text = "aaa"
-item_0/checkable = 1
-item_1/text = "bbb"
-item_1/checkable = 1
-item_1/id = 1
+[node name="PopupMenu" type="PopupMenu" parent="."]
 
 [connection signal="pressed" from="Panel/Foreground/Hack" to="." method="_on_hack_pressed"]
 [connection signal="pressed" from="Panel/Foreground/Up" to="." method="_on_up_pressed"]

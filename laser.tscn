@@ -5,13 +5,12 @@
 [ext_resource type="Script" path="res://inputsequence.gd" id="2_mna81"]
 [ext_resource type="Script" path="res://simonsequence.gd" id="3_5a3tw"]
 [ext_resource type="Texture2D" uid="uid://dl26kmc4ak4qf" path="res://textures/laser 2.png" id="3_cdahb"]
+[ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
 [ext_resource type="Texture2D" uid="uid://cy8acgqpnattr" path="res://textures/laser 1.png" id="4_vw0t3"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
 [sub_resource type="SystemFont" id="SystemFont_j7ak1"]
 
@@ -20,7 +19,7 @@ RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 RichTextLabel/font_sizes/normal_font_size = 80
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_ry6ep"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
@@ -100,7 +99,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_vw0t3")
 
-[node name="idk" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
+[node name="padding?" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -113,7 +112,7 @@ alignment = 1
 [node name="Player box2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture = SubResource("CanvasTexture_ya8al")
+texture = ExtResource("4_0pbgt")
 
 [node name="Simon" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box2"]
 z_index = 1
@@ -136,7 +135,7 @@ texture = SubResource("CanvasTexture_ya8al")
 [node name="Player box" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture = SubResource("CanvasTexture_ry6ep")
+texture = ExtResource("4_0pbgt")
 
 [node name="PlayerInput" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box"]
 z_index = 1

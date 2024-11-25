@@ -12,9 +12,10 @@ func _input(event : InputEvent) -> void:
 		if letter in ascii_letters_and_digits:
 			if captureon == true:
 				inputseq.append(letter)
+
 func simoncount():
 	var message = "Watch the guards inputs closely!"
-	$CanvasLayer/Panel/Countdown.text = "[font_size=80][center]%s[/center][/font_size]" % [message]
+	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
 
 func genSequence(length: int) -> String:
 	var result = ""
@@ -22,6 +23,6 @@ func genSequence(length: int) -> String:
 		result += ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()]
 	return result
 	$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box2/Simon".showSequence(genSequence(8))
+
 func _ready():
 	simoncount()
-	

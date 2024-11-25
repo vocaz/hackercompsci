@@ -60,6 +60,16 @@ func _on_left_pressed() -> void:
 	send(instruction)# Replace with function body.
 
 func _on_hack_pressed() -> void:
+	hacking_popup()
+	
 	var instruction = {"action":"hack", "item":targethack, "state":"begin"}
 	send(instruction)
-	
+
+func hacking_popup() -> void:
+	var exampleArray = ["first", "second", "third"]
+	for item in exampleArray:
+		$PopupMenu.add_item(item)
+	$PopupMenu.show()
+
+func _on_index_pressed() -> void:
+	pass
