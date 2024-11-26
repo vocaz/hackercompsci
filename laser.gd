@@ -18,9 +18,9 @@ func simoncount():
 	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
 
 func genSequence(length: int) -> String:
-	var result = ""
+	var result = []
 	for i in range(length):
-		result += ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()]
+		result.append(ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()])
 	return result
 	$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box2/Simon".showSequence(genSequence(8))
 
