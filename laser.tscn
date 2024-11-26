@@ -109,12 +109,12 @@ texture = SubResource("CanvasTexture_xpli7")
 layout_mode = 2
 alignment = 1
 
-[node name="Player box2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
+[node name="SimonBox" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("4_0pbgt")
 
-[node name="Simon" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box2"]
+[node name="Simon" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/SimonBox"]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -148,3 +148,5 @@ grow_vertical = 2
 theme = SubResource("Theme_s7hvn")
 bbcode_enabled = true
 script = ExtResource("2_mna81")
+
+[connection signal="readyforcheck" from="." to="." method="_on_readyforcheck"]
