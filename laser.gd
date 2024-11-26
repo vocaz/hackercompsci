@@ -8,14 +8,14 @@ var iscorrect = true
 var incorrect = 0
 var finalletter = false
 signal readyforcheck
-const ascii_letters_and_digits = "abcdefghijklmnopqrstuvwxyz1234567890-=`[]\';,./"
+const ascii_letters_and_digits = """ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=`[]\';,./"""
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds,false).timeout
 func _input(event : InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed():
 		var key_event := event as InputEventKey
 		# filter for printable characters
-		var letter := key_event.as_text_key_label().to_lower()#String.chr(key_event.unicode)
+		var letter := key_event.as_text_key_label()#String.chr(key_event.unicode)
 		if letter in ascii_letters_and_digits:
 			if remcapture == 1:
 				finalletter = true
@@ -23,10 +23,9 @@ func _input(event : InputEvent) -> void:
 				inputseq.append(letter)
 				$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box/PlayerInput".text = "[center]%s[/center]" % [letter]
 				remcapture -= 1
-				print(letter)
 				if finalletter == true:
 					readyforcheck.emit()
-			
+		print(letter)	
 
 func simoncount():
 	var message = "Watch the guards inputs closely!"
