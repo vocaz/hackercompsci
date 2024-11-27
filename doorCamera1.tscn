@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://k6upftwmdjiy"]
 
-[ext_resource type="Script" path="res://door_camera.gd" id="1_uv1jy"]
+[ext_resource type="Script" path="res://door_camera_1.gd" id="1_0kn8x"]
 [ext_resource type="PackedScene" uid="uid://2w4sqcewlhm7" path="res://testmap1.tscn" id="2_uyi7y"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_18gjb"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nk2qv"]
 
-[node name="DoorCamera" type="Node2D"]
-script = ExtResource("1_uv1jy")
+[node name="DoorCamera1" type="Node2D"]
+script = ExtResource("1_0kn8x")
 metadata/_edit_vertical_guides_ = [326.0, 826.0]
 metadata/_edit_horizontal_guides_ = [74.0, 574.0]
 
