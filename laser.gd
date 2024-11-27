@@ -8,7 +8,6 @@ var inputseq = []
 var simonseq = []
 var iscorrect = true
 var incorrect = 0
-var finalletter = false
 signal readyforcheck
 const ascii_letters_and_digits = """ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=`[]\';,./"""
 func wait(seconds: float) -> void:
@@ -42,35 +41,31 @@ func _input(event : InputEvent) -> void:
 			"QuoteLeft":
 				letter = "`"
 		if letter in ascii_letters_and_digits:
-			#if remcapture == 1:
-				#finalletter = true
 			if remcapture > 0:
 				inputseq.append(letter)
 				$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box/PlayerInput".text = "[center]%s[/center]" % [letter]
 				remcapture -= 1
 				readyforcheck.emit()
-				#if finalletter == true:
-					#readyforcheck.emit()
 
-func simoncount():
+func simoncount(length: int):
 	var message = "Watch the guards inputs closely!"
 	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
-	await wait(0.3)
+	await wait(1)
 	message = "3"
 	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
-	await wait(0.3)
+	await wait(1)
 	message = "2"
 	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
-	await wait(0.3)
+	await wait(1)
 	message = "1"
 	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
-	await wait(0.3)
+	await wait(1)
 	$CanvasLayer/Panel/Countdown.text = ""
-	simonseq = genSequence(3)
+	simonseq = genSequence(length)
 	await $CanvasLayer/Panel/VBoxContainer/HBoxContainer/SimonBox/Simon.showSequence(simonseq)
 	message = "Now your turn! Repeat the sequence!"
 	$CanvasLayer/Panel/Countdown.text = "[font_size=40][center]%s[/center][/font_size]" % [message]
-	remcapture = 3
+	remcapture = length
 	
 func genSequence(length: int) -> Array:
 	var result = []
@@ -78,7 +73,7 @@ func genSequence(length: int) -> Array:
 		result.append(ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()])
 	return result
 func _ready():
-	simoncount()
+	simoncount(5)
 func _process(delta):
 	curshakestrength = max(curshakestrength - delta,0);
 
@@ -90,9 +85,16 @@ func _on_readyforcheck() -> void:
 	if iscorrect == false:
 		curshakestrength = shakestrength
 		$CanvasLayer/ColorRect.material.set_shader_parameter("ShakeStrength",max(curshakestrength,0))
+		$CanvasLayer/ColorRect2.material.set_shader_parameter("Switch",1.0)
+		await wait (0.2)
+		$CanvasLayer/ColorRect2.material.set_shader_parameter("Switch",0)
+		$CanvasLayer/ColorRect.material.set_shader_parameter("ShakeStrength",0)
 		print("incorrect. you put:")
 		print(inputseq[incorrect])
 		print("it should've been:")
 		print(simonseq[incorrect])
 	else:
-		print("correct") # Replace with function body.
+		if remcapture == 0:
+			print("Full Sequence Correct")
+		else:
+			print("letter correct") # Replace with function body.
