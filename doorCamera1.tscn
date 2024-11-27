@@ -7,7 +7,7 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_nk2qv"]
 
-[node name="DoorCamera1" type="Node2D"]
+[node name="DoorCamera1" type="Node2D" groups=["goal"]]
 script = ExtResource("1_0kn8x")
 metadata/_edit_vertical_guides_ = [326.0, 826.0]
 metadata/_edit_horizontal_guides_ = [74.0, 574.0]

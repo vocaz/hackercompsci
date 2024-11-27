@@ -1,9 +1,8 @@
 extends Area2D
+var gotten = false
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,4 +14,7 @@ func area_entered(body: Node2D) -> void:
 	pass
 
 func goal_get():
-	$Sprite2D.texture = load("res://textures/goal green.png")
+	if not gotten:	
+		$Sprite2D.texture = load("res://textures/goal green.png")
+		gotten = true
+		get_tree().call_group("goal", "__on_goalgotten")

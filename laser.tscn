@@ -100,6 +100,7 @@ texture = ExtResource("3_cdahb")
 
 [node name="Hacker" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Wall"]
 texture_filter = 1
+layout_mode = 0
 offset_left = 14.0
 offset_top = 76.0
 offset_right = 83.0
