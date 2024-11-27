@@ -1,4 +1,6 @@
 extends Node2D
+var shakestrength = 2
+var curshakestrength = 0;
 var key_event = ""
 var letter = ""
 var remcapture = 0
@@ -16,16 +18,39 @@ func _input(event : InputEvent) -> void:
 		var key_event := event as InputEventKey
 		# filter for printable characters
 		var letter := key_event.as_text_key_label()#String.chr(key_event.unicode)
+		match letter:
+			"Slash":
+				letter = "/"
+			"Period":
+				letter = "."
+			"Comma":
+				letter = ","
+			"Semicolon":
+				letter = ";"
+			"Apostrophe":
+				letter = "'"
+			"BracketLeft":
+				letter = "["
+			"BracketRight":
+				letter = "]"
+			"BackSlash":
+				letter = "\\"
+			"Minus":
+				letter = "-"
+			"Equal":
+				letter = "="
+			"QuoteLeft":
+				letter = "`"
 		if letter in ascii_letters_and_digits:
-			if remcapture == 1:
-				finalletter = true
+			#if remcapture == 1:
+				#finalletter = true
 			if remcapture > 0:
 				inputseq.append(letter)
 				$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box/PlayerInput".text = "[center]%s[/center]" % [letter]
 				remcapture -= 1
-				if finalletter == true:
-					readyforcheck.emit()
-		print(letter)	
+				readyforcheck.emit()
+				#if finalletter == true:
+					#readyforcheck.emit()
 
 func simoncount():
 	var message = "Watch the guards inputs closely!"
@@ -54,7 +79,8 @@ func genSequence(length: int) -> Array:
 	return result
 func _ready():
 	simoncount()
-
+func _process(delta):
+	curshakestrength = max(curshakestrength - delta,0);
 
 func _on_readyforcheck() -> void:
 	for i in range(0,len(inputseq)):
@@ -62,6 +88,8 @@ func _on_readyforcheck() -> void:
 			iscorrect = false
 			incorrect = i
 	if iscorrect == false:
+		curshakestrength = shakestrength
+		$CanvasLayer/ColorRect.material.set_shader_parameter("ShakeStrength",max(curshakestrength,0))
 		print("incorrect. you put:")
 		print(inputseq[incorrect])
 		print("it should've been:")

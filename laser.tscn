@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=15 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
 [ext_resource type="Texture2D" uid="uid://b5b3bsbes0jpu" path="res://textures/wall.png" id="2_halbk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dl26kmc4ak4qf" path="res://textures/laser 2.png" id="3_cdahb"]
 [ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
 [ext_resource type="Texture2D" uid="uid://cy8acgqpnattr" path="res://textures/laser 1.png" id="4_vw0t3"]
+[ext_resource type="Shader" path="res://screenshake.gdshader" id="8_0kfuu"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
 
@@ -20,6 +21,13 @@ RichTextLabel/font_sizes/normal_font_size = 80
 RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdv1c"]
+shader = ExtResource("8_0kfuu")
+shader_parameter/ShakeStrength = 0.0
+shader_parameter/FactorA = Vector2(100, 100)
+shader_parameter/FactorB = Vector2(1, 1)
+shader_parameter/magnitude = Vector2(0.01, 0.01)
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
@@ -148,5 +156,11 @@ grow_vertical = 2
 theme = SubResource("Theme_s7hvn")
 bbcode_enabled = true
 script = ExtResource("2_mna81")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 6
+material = SubResource("ShaderMaterial_gdv1c")
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="readyforcheck" from="." to="." method="_on_readyforcheck"]
