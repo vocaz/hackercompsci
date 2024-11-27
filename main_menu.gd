@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var targethack = -1
 var connected := false
 var addresses = false
@@ -41,8 +40,10 @@ func _process(delta: float) -> void:
 							print(currentAction)
 							$Panel/Foreground/Hack.set_disabled(false)
 				if response["type"] == "begin_action":
-					var addresses = response["data"]
-					print(addresses["data"])
+					var data = response["data"]
+					for address in data:
+						addresses.append(JSON.parse_string(address))
+					print(addresses)
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:
@@ -62,8 +63,6 @@ func _on_left_pressed() -> void:
 	send(instruction)# Replace with function body.
 
 func _on_hack_pressed() -> void:
-	hacking_popup()
-	
 	var instruction = {"action":"hack", "item":targethack, "state":"begin"}
 	send(instruction)
 
