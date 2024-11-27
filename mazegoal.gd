@@ -17,4 +17,4 @@ func goal_get():
 	if not gotten:	
 		$Sprite2D.texture = load("res://textures/goal green.png")
 		gotten = true
-		get_tree().call_group("goal", "__on_goalgotten")
+		get_tree().call_group("goal", "_on_goalgotten")

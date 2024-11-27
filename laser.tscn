@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=17 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
 [ext_resource type="Texture2D" uid="uid://b5b3bsbes0jpu" path="res://textures/wall.png" id="2_halbk"]
@@ -8,19 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
 [ext_resource type="Texture2D" uid="uid://cdlopqavhps8w" path="res://textures/Hacker sprite side.png" id="4_mfxko"]
 [ext_resource type="Texture2D" uid="uid://cy8acgqpnattr" path="res://textures/laser 1.png" id="4_vw0t3"]
+[ext_resource type="Theme" uid="uid://c232tbd0pwa2b" path="res://Labels.tres" id="7_mmgev"]
 [ext_resource type="Shader" path="res://screenshake.gdshader" id="8_0kfuu"]
 [ext_resource type="Shader" path="res://redflash.gdshader" id="9_2144g"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_xpli7"]
-
-[sub_resource type="SystemFont" id="SystemFont_j7ak1"]
-
-[sub_resource type="Theme" id="Theme_s7hvn"]
-RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
-RichTextLabel/font_sizes/normal_font_size = 80
-RichTextLabel/fonts/normal_font = SubResource("SystemFont_j7ak1")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
@@ -146,7 +140,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_s7hvn")
+theme = ExtResource("7_mmgev")
 bbcode_enabled = true
 script = ExtResource("3_5a3tw")
 
@@ -169,7 +163,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_s7hvn")
+theme = ExtResource("7_mmgev")
 bbcode_enabled = true
 script = ExtResource("2_mna81")
 

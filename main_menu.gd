@@ -1,8 +1,10 @@
 extends Node2D
-
+var addressvar = []
 var targethack = -1
 var connected := false
-var addresses = false
+var addresses = []
+var addformatlist = ["ID|MAC ADDRESS"]
+var addformat = "%s|%s"
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
@@ -28,7 +30,6 @@ func _process(delta: float) -> void:
 			if server_response.parse(server_message) == OK:
 				$Panel/Foreground/Hack.set_disabled(true)
 				var response = server_response.data
-				print(response)
 				if response["type"] == "environment":
 					var env = response["response"]
 					for space in env:
@@ -40,10 +41,11 @@ func _process(delta: float) -> void:
 							print(currentAction)
 							$Panel/Foreground/Hack.set_disabled(false)
 				if response["type"] == "begin_action":
-					var data = response["data"]
-					for address in data:
-						addresses.append(JSON.parse_string(address))
-					print(addresses)
+					addresses = response["data"]
+					for address in addresses:
+						addressvar = str_to_var(address)
+						addformatlist.append(addformat % [addressvar["id"],addressvar["mac"]])
+					hacking_popup(addformatlist)
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:
@@ -65,13 +67,12 @@ func _on_left_pressed() -> void:
 func _on_hack_pressed() -> void:
 	var instruction = {"action":"hack", "item":targethack, "state":"begin"}
 	send(instruction)
+	
 
-func hacking_popup() -> void:
-	var exampleArray = ["first", "second", "third"]
-	for item in exampleArray:
-		$PopupMenu.add_item(item)
-	$PopupMenu.show()
-	print(targethack)
+func hacking_popup(list) -> void:
+	for item in list:
+		$Panel/PopupMenu.add_item(item,)
+	$Panel/PopupMenu.show()
 
 func _on_index_pressed() -> void:
 	pass

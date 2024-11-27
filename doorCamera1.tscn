@@ -1,46 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://k6upftwmdjiy"]
+[gd_scene load_steps=6 format=3 uid="uid://k6upftwmdjiy"]
 
 [ext_resource type="Script" path="res://door_camera_1.gd" id="1_0kn8x"]
 [ext_resource type="PackedScene" uid="uid://2w4sqcewlhm7" path="res://testmap1.tscn" id="2_uyi7y"]
+[ext_resource type="Shader" path="res://greenflash.gdshader" id="3_pyr2a"]
+[ext_resource type="Theme" uid="uid://c232tbd0pwa2b" path="res://Labels.tres" id="4_b4l8g"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_18gjb"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_nk2qv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fya1"]
+shader = ExtResource("3_pyr2a")
+shader_parameter/Switch = 0.0
 
 [node name="DoorCamera1" type="Node2D" groups=["goal"]]
 script = ExtResource("1_0kn8x")
 metadata/_edit_vertical_guides_ = [326.0, 826.0]
 metadata/_edit_horizontal_guides_ = [74.0, 574.0]
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Background" type="TextureRect" parent="Panel"]
-modulate = Color(0.129412, 0.129412, 0.129412, 1)
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = SubResource("CanvasTexture_18gjb")
 
-[node name="Maze1" type="TextureRect" parent="Panel"]
-modulate = Color(0.258824, 0.258824, 0.258824, 1)
-layout_mode = 1
+[node name="Node2D" parent="CanvasLayer/Panel/HBoxContainer" instance=ExtResource("2_uyi7y")]
+position = Vector2(326, 74)
+
+[node name="Green Flash" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_0fya1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -250.0
-offset_right = 250.0
-offset_bottom = 250.0
+offset_left = -197.0
+offset_top = -55.0
+offset_right = 197.0
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_nk2qv")
-
-[node name="Node2D" parent="Panel" instance=ExtResource("2_uyi7y")]
-position = Vector2(326, 74)
+theme = ExtResource("4_b4l8g")
+text = "Complete!"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 30.0

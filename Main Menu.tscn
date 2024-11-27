@@ -78,7 +78,6 @@ offset_bottom = 304.0
 shortcut = SubResource("Shortcut_akmqp")
 texture_normal = ExtResource("4_ofoar")
 texture_pressed = ExtResource("5_ypbpd")
-metadata/_edit_group_ = true
 
 [node name="Down" type="TextureButton" parent="Panel/Foreground"]
 layout_mode = 0
@@ -89,7 +88,6 @@ offset_bottom = 432.0
 shortcut = SubResource("Shortcut_acpyh")
 texture_normal = ExtResource("6_fqres")
 texture_pressed = ExtResource("7_8mimh")
-metadata/_edit_group_ = true
 
 [node name="Left" type="TextureButton" parent="Panel/Foreground"]
 layout_mode = 0
@@ -100,7 +98,6 @@ offset_bottom = 432.0
 shortcut = SubResource("Shortcut_iuj6p")
 texture_normal = ExtResource("8_a80u5")
 texture_pressed = ExtResource("9_nsjtx")
-metadata/_edit_group_ = true
 
 [node name="Right" type="TextureButton" parent="Panel/Foreground"]
 layout_mode = 0
@@ -111,9 +108,9 @@ offset_bottom = 432.0
 shortcut = SubResource("Shortcut_7pteb")
 texture_normal = ExtResource("10_j6mxm")
 texture_pressed = ExtResource("11_wsklw")
-metadata/_edit_group_ = true
 
-[node name="PopupMenu" type="PopupMenu" parent="."]
+[node name="PopupMenu" type="PopupMenu" parent="Panel"]
+initial_position = 1
 
 [connection signal="pressed" from="Panel/Foreground/Hack" to="." method="_on_hack_pressed"]
 [connection signal="pressed" from="Panel/Foreground/Up" to="." method="_on_up_pressed"]
