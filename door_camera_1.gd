@@ -21,3 +21,7 @@ func _on_timer_timeout() -> void:
 
 func _on_goalgotten() -> void:
 	currentgoals += 1
+
+
+func _on_done() -> void:
+	pass # Replace with function body.

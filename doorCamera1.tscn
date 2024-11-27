@@ -46,4 +46,5 @@ position = Vector2(326, 74)
 wait_time = 30.0
 autostart = true
 
+[connection signal="done" from="." to="." method="_on_done"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
