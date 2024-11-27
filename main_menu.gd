@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var targethack = ""
+var targethack = -1
 var connected := false
 var addresses = false
 func send(instruction: Dictionary):
@@ -29,18 +29,20 @@ func _process(delta: float) -> void:
 			if server_response.parse(server_message) == OK:
 				$Panel/Foreground/Hack.set_disabled(true)
 				var response = server_response.data
+				print(response)
 				if response["type"] == "environment":
 					var env = response["response"]
 					for space in env:
 						if space["actions"].has("hack"):
-							var targethack = int(space["id"])
+							targethack = space["id"]
+							print(targethack)
 							var templateAction = "There is a hackable %s in the %s direction"
 							var currentAction = templateAction % [space["type"],space["direction"]]
 							print(currentAction)
 							$Panel/Foreground/Hack.set_disabled(false)
 				if response["type"] == "begin_action":
 					var addresses = response["data"]
-					print(addresses)
+					print(addresses["data"])
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
 func _on_up_pressed() -> void:
@@ -70,6 +72,7 @@ func hacking_popup() -> void:
 	for item in exampleArray:
 		$PopupMenu.add_item(item)
 	$PopupMenu.show()
+	print(targethack)
 
 func _on_index_pressed() -> void:
 	pass

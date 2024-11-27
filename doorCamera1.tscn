@@ -41,3 +41,9 @@ texture = SubResource("CanvasTexture_nk2qv")
 
 [node name="Node2D" parent="Panel" instance=ExtResource("2_uyi7y")]
 position = Vector2(326, 74)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
