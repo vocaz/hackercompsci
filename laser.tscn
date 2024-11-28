@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://5u37j4y7164o" path="res://textures/box.png" id="4_0pbgt"]
 [ext_resource type="Texture2D" uid="uid://cdlopqavhps8w" path="res://textures/Hacker sprite side.png" id="4_mfxko"]
 [ext_resource type="Texture2D" uid="uid://cy8acgqpnattr" path="res://textures/laser 1.png" id="4_vw0t3"]
-[ext_resource type="Theme" uid="uid://c232tbd0pwa2b" path="res://Labels.tres" id="7_mmgev"]
+[ext_resource type="Theme" path="res://Labels.tres" id="7_mmgev"]
 [ext_resource type="Shader" path="res://screenshake.gdshader" id="8_0kfuu"]
 [ext_resource type="Shader" path="res://redflash.gdshader" id="9_2144g"]
 
@@ -102,7 +102,7 @@ offset_bottom = 149.0
 texture = ExtResource("4_mfxko")
 flip_h = true
 
-[node name="Laser foreground2" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Wall"]
+[node name="Laser foreground" type="TextureRect" parent="CanvasLayer/Panel/VBoxContainer/Wall"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

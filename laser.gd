@@ -8,8 +8,16 @@ var inputseq = []
 var simonseq = []
 var iscorrect = true
 var incorrect = 0
+var instruction = {}
 signal readyforcheck
 const ascii_letters_and_digits = """ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=`[]\';,./"""
+
+func send(instruction: Dictionary):
+	#Globals.socket.put_packet(message.to_utf8_buffer())
+	instruction["role"] = Globals.role
+	instruction["version"] = Globals.api_version
+	Globals.socket.send_text(JSON.stringify(instruction))
+
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds,false).timeout
 func _input(event : InputEvent) -> void:
@@ -73,7 +81,7 @@ func genSequence(length: int) -> Array:
 		result.append(ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()])
 	return result
 func _ready():
-	simoncount(5)
+	simoncount(3)
 func _process(delta):
 	curshakestrength = max(curshakestrength - delta,0);
 
@@ -93,8 +101,15 @@ func _on_readyforcheck() -> void:
 		print(inputseq[incorrect])
 		print("it should've been:")
 		print(simonseq[incorrect])
+		instruction = {"action":"hack", "item":Globals.currenthack, "state":"failed"}
+		send(instruction)
 	else:
 		if remcapture == 0:
 			print("Full Sequence Correct")
+			$"CanvasLayer/Panel/VBoxContainer/Wall/Laser background".visible = false
+			$"CanvasLayer/Panel/VBoxContainer/Wall/Laser foreground".visible = false
+			$CanvasLayer/Panel/VBoxContainer/Wall/Hacker.position = Vector2(395, 73)
+			instruction = {"action":"hack", "item":Globals.currenthack, "state":"success"}
+			send(instruction)
 		else:
 			print("letter correct") # Replace with function body.
