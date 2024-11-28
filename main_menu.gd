@@ -5,6 +5,8 @@ var addresses = []
 var addresslistpopup = ["MAC ADDRESS"]
 var closestformat = "%s|This is the device you are next to"
 var addressids = []
+var addressminigame = []
+var currentminigame = -1
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
@@ -49,6 +51,7 @@ func _process(delta: float) -> void:
 						else:
 							addresslistpopup.append(addressvar["mac"])
 						addressids.append(addressvar["id"])
+						addressminigame.append(addressvar["type"])
 					hacking_popup(addresslistpopup)
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
@@ -80,4 +83,9 @@ func hacking_popup(list) -> void:
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	Globals.currenthack = addressids[index-1] # Replace with function body.
+	if addressminigame[index-1] == "maze":
+		currentminigame = 0
+	if addressminigame[index-1] == "laser":
+		currentminigame = 1
 	print(Globals.currenthack)
+	print(currentminigame)
