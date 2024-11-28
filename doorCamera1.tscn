@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://door_camera_1.gd" id="1_0kn8x"]
 [ext_resource type="PackedScene" uid="uid://2w4sqcewlhm7" path="res://testmap1.tscn" id="2_uyi7y"]
 [ext_resource type="Shader" path="res://greenflash.gdshader" id="3_pyr2a"]
-[ext_resource type="Theme" uid="uid://c232tbd0pwa2b" path="res://Labels.tres" id="4_b4l8g"]
+[ext_resource type="Theme" path="res://Labels.tres" id="4_b4l8g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0fya1"]
 shader = ExtResource("3_pyr2a")
