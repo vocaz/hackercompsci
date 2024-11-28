@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 							addresslistpopup.append(closestformat % [addressvar["mac"],])
 						else:
 							addresslistpopup.append(addressvar["mac"])
-						addressids.append[addressvar["id"]]
+						addressids.append(addressvar["id"])
 					hacking_popup(addresslistpopup)
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
@@ -79,5 +79,5 @@ func hacking_popup(list) -> void:
 	$Panel/PopupMenu.show()
 
 func _on_popup_menu_index_pressed(index: int) -> void:
-	Globals.currenthack = addressids[index] # Replace with function body.
+	Globals.currenthack = addressids[index-1] # Replace with function body.
 	print(Globals.currenthack)
