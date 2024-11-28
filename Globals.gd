@@ -1,5 +1,5 @@
 extends Node
-
+var currenthack = -1
 var playerName
 var serverIP
 var socket := WebSocketPeer.new()
