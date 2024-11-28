@@ -7,12 +7,16 @@ var closestformat = "%s|This is the device you are next to"
 var addressids = []
 var addressminigame = []
 var currentminigame = -1
+var numberofmaps = 2
+var mazeselect = "res://doorCamera%s.tscn"
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
 	instruction["version"] = Globals.api_version
 	Globals.socket.send_text(JSON.stringify(instruction))
 	
+func get_random_maze():
+	mazeselect = mazeselect % [randi_range(1,numberofmaps)]
 func log_message(message: String) -> void:
 	var time := "%s | " % Time.get_time_string_from_system()
 	print(time + message)
@@ -51,7 +55,7 @@ func _process(delta: float) -> void:
 						else:
 							addresslistpopup.append(addressvar["mac"])
 						addressids.append(addressvar["id"])
-						addressminigame.append(addressvar["type"])
+						addressminigame.append(addressvar["hack_type"])
 					hacking_popup(addresslistpopup)
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
@@ -75,7 +79,6 @@ func _on_hack_pressed() -> void:
 	var instruction = {"action":"hack", "item":Globals.currenthack, "state":"begin"}
 	send(instruction)
 	
-
 func hacking_popup(list) -> void:
 	for item in list:
 		$Panel/PopupMenu.add_item(item,)
@@ -83,9 +86,11 @@ func hacking_popup(list) -> void:
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	Globals.currenthack = addressids[index-1] # Replace with function body.
-	if addressminigame[index-1] == "maze":
-		currentminigame = 0
-	if addressminigame[index-1] == "laser":
-		currentminigame = 1
+	currentminigame = addressminigame[index-1]
 	print(Globals.currenthack)
 	print(currentminigame)
+	if currentminigame == "maze":
+		get_random_maze()
+		get_tree().change_scene_to_file(mazeselect)
+	elif currentminigame == "laser":
+		get_tree().change_scene_to_file("laser.tcsn")

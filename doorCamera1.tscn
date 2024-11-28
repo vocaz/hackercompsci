@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://k6upftwmdjiy"]
+[gd_scene load_steps=8 format=3 uid="uid://k6upftwmdjiy"]
 
 [ext_resource type="Script" path="res://door_camera_1.gd" id="1_0kn8x"]
 [ext_resource type="PackedScene" uid="uid://2w4sqcewlhm7" path="res://testmap1.tscn" id="2_uyi7y"]
+[ext_resource type="Shader" path="res://redflash.gdshader" id="3_gl5ku"]
 [ext_resource type="Shader" path="res://greenflash.gdshader" id="3_pyr2a"]
-[ext_resource type="Theme" path="res://Labels.tres" id="4_b4l8g"]
+[ext_resource type="Theme" uid="uid://c232tbd0pwa2b" path="res://Labels.tres" id="4_b4l8g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_odbxe"]
+shader = ExtResource("3_gl5ku")
+shader_parameter/Switch = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0fya1"]
 shader = ExtResource("3_pyr2a")
@@ -29,6 +34,15 @@ layout_mode = 0
 [node name="Node2D" parent="CanvasLayer/Panel/HBoxContainer" instance=ExtResource("2_uyi7y")]
 position = Vector2(326, 74)
 
+[node name="Red Flash" type="ColorRect" parent="CanvasLayer"]
+z_index = 6
+material = SubResource("ShaderMaterial_odbxe")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Green Flash" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_0fya1")
 anchors_preset = 15
@@ -37,7 +51,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Timeleft" type="Label" parent="CanvasLayer"]
+offset_right = 214.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_b4l8g")
+theme_override_font_sizes/font_size = 50
+text = "Time Up!"
+horizontal_alignment = 1
+
+[node name="timeup" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -55.0
+offset_right = 197.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("4_b4l8g")
+text = "Time Up!"
+horizontal_alignment = 1
+
+[node name="success" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -51,10 +93,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_b4l8g")
 text = "Complete!"
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 10.0
 autostart = true
 
-[connection signal="done" from="." to="." method="_on_done"]
+[connection signal="failed" from="." to="." method="_on_failed"]
+[connection signal="success" from="." to="." method="_on_success"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
