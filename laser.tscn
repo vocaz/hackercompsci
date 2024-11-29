@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://41o38f3skxfn"]
+[gd_scene load_steps=19 format=3 uid="uid://41o38f3skxfn"]
 
 [ext_resource type="Script" path="res://laser.gd" id="1_65tx1"]
 [ext_resource type="Texture2D" uid="uid://b5b3bsbes0jpu" path="res://textures/wall.png" id="2_halbk"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cy8acgqpnattr" path="res://textures/laser 1.png" id="4_vw0t3"]
 [ext_resource type="Theme" uid="uid://c232tbd0pwa2b" path="res://Labels.tres" id="7_mmgev"]
 [ext_resource type="Shader" path="res://screenshake.gdshader" id="8_0kfuu"]
+[ext_resource type="Shader" path="res://redflash.gdshader" id="10_odfw5"]
+[ext_resource type="Shader" path="res://greenflash.gdshader" id="11_4dvf5"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_juj6x"]
 
@@ -17,12 +19,20 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ya8al"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xryta"]
+shader = ExtResource("10_odfw5")
+shader_parameter/Switch = 0.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdv1c"]
 shader = ExtResource("8_0kfuu")
 shader_parameter/ShakeStrength = 0.0
 shader_parameter/FactorA = Vector2(100, 100)
 shader_parameter/FactorB = Vector2(1, 1)
 shader_parameter/magnitude = Vector2(0.01, 0.01)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d2hqy"]
+shader = ExtResource("11_4dvf5")
+shader_parameter/Switch = 0.0
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_65tx1")
@@ -162,6 +172,31 @@ theme = ExtResource("7_mmgev")
 bbcode_enabled = true
 script = ExtResource("2_mna81")
 
+[node name="success" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -55.0
+offset_right = 197.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_mmgev")
+text = "Complete!"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_xryta")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 6
 material = SubResource("ShaderMaterial_gdv1c")
@@ -170,5 +205,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Green Flash" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_d2hqy")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 
 [connection signal="readyforcheck" from="." to="." method="_on_readyforcheck"]

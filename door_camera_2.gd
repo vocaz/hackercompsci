@@ -15,7 +15,8 @@ func wait(seconds: float) -> void:
 func _ready() -> void:
 	label = $CanvasLayer/Timeleft
 	time = $Timer
-	$CanvasLayer/Label.visible = false
+	$CanvasLayer/success.visible = false
+	$CanvasLayer/timeup.visible = false
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
@@ -50,7 +51,7 @@ func _on_success() -> void:
 	$"CanvasLayer/Green Flash".material.set_shader_parameter("Switch",0)
 	instruction = {"action":"hack", "item":Globals.currenthack, "state":"success"}
 	send(instruction)
-
+	get_tree().change_scene_to_file("res://Main Menu.tscn")
 
 func _on_failed() -> void:
 	$CanvasLayer/timeup.visible = true
@@ -60,5 +61,6 @@ func _on_failed() -> void:
 	$"CanvasLayer/Red Flash".material.set_shader_parameter("Switch",0)
 	instruction = {"action":"hack", "item":Globals.currenthack, "state":"failed"}
 	send(instruction)
+	get_tree().change_scene_to_file("res://Main Menu.tscn")
 func update_timeleft():
 	label.text = timeleft % [str(ceil(time.time_left))]

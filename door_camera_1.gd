@@ -39,7 +39,6 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	failstate = true
 
-
 func _on_goalgotten() -> void:
 	currentgoals += 1
 	print(currentgoals)

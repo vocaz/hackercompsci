@@ -81,7 +81,7 @@ func genSequence(length: int) -> Array:
 		result.append(ascii_letters_and_digits[randi() % ascii_letters_and_digits.length()])
 	return result
 func _ready():
-	simoncount(3)
+	simoncount(5)
 func _process(delta):
 	curshakestrength = max(curshakestrength - delta,0);
 
@@ -103,13 +103,18 @@ func _on_readyforcheck() -> void:
 		print(simonseq[incorrect])
 		instruction = {"action":"hack", "item":Globals.currenthack, "state":"failed"}
 		send(instruction)
+		get_tree().change_scene_to_file("res://Main Menu.tscn")
 	else:
 		if remcapture == 0:
 			print("Full Sequence Correct")
 			$"CanvasLayer/Panel/VBoxContainer/Wall/Laser background".visible = false
 			$"CanvasLayer/Panel/VBoxContainer/Wall/Laser foreground".visible = false
 			$CanvasLayer/Panel/VBoxContainer/Wall/Hacker.position = Vector2(395, 73)
+			$"CanvasLayer/Green Flash".material.set_shader_parameter("Switch",1.0)
+			$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/success".visible = true
+			await wait(0.5)
 			instruction = {"action":"hack", "item":Globals.currenthack, "state":"success"}
 			send(instruction)
+			get_tree().change_scene_to_file("res://Main Menu.tscn")
 		else:
 			print("letter correct") # Replace with function body.

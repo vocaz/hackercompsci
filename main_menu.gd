@@ -1,4 +1,9 @@
 extends Node2D
+var templateAction = "There is a hackable %s in the %s direction"
+var env
+var server_response
+var server_message
+var response
 var addressvar = []
 var connected := false
 var addresses = []
@@ -23,31 +28,30 @@ func log_message(message: String) -> void:
 	print(time + message)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_on_left_pressed()
 	Globals.currenthack = -1
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func recievemessage() -> void:
 	Globals.socket.poll()
 
 	if Globals.socket.get_ready_state() == WebSocketPeer.STATE_OPEN:
 		while Globals.socket.get_available_packet_count():
-			var server_message = Globals.socket.get_packet().get_string_from_ascii()
-			var server_response = JSON.new()
+			server_message = Globals.socket.get_packet().get_string_from_ascii()
+			server_response = JSON.new()
 			if server_response.parse(server_message) == OK:
 				$Panel/Foreground/Hack.set_disabled(true)
-				var response = server_response.data
+				response = server_response.data
 				if response["type"] == "environment":
-					var env = response["response"]
+					env = response["response"]
 					for space in env:
 						if space["actions"].has("hack"):
 							Globals.currenthack = space["id"]
 							print(Globals.currenthack)
-							var templateAction = "There is a hackable %s in the %s direction"
 							var currentAction = templateAction % [space["type"],space["direction"]]
 							print(currentAction)
 							$Panel/Foreground/Hack.set_disabled(false)
 				if response["type"] == "begin_action":
+					print(response)
 					addresses = response["data"]
 					for address in addresses:
 						addressvar = str_to_var(address)
@@ -60,6 +64,9 @@ func _process(delta: float) -> void:
 					hacking_popup(addresslistpopup)
 			log_message(Globals.socket.get_packet().get_string_from_ascii())
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	recievemessage()
 func _on_up_pressed() -> void:
 	var instruction = {"action":"move", "direction":"up"}# Replace with function body.
 	send(instruction)
@@ -77,6 +84,7 @@ func _on_left_pressed() -> void:
 	send(instruction)# Replace with function body.
 
 func _on_hack_pressed() -> void:
+	await recievemessage()
 	var instruction = {"action":"hack", "item":Globals.currenthack, "state":"begin"}
 	send(instruction)
 	
@@ -95,4 +103,4 @@ func _on_popup_menu_index_pressed(index: int) -> void:
 		get_random_maze()
 		get_tree().change_scene_to_file(mazeselect)
 	elif gameselect == 2:
-		get_tree().change_scene_to_file("laser.tcsn")
+		get_tree().change_scene_to_file("res://laser.tscn")
