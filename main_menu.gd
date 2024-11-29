@@ -9,6 +9,7 @@ var addressminigame = []
 var currentminigame = -1
 var numberofmaps = 2
 var mazeselect = "res://doorCamera%s.tscn"
+var gameselect = 0
 func send(instruction: Dictionary):
 	#Globals.socket.put_packet(message.to_utf8_buffer())
 	instruction["role"] = Globals.role
@@ -86,11 +87,12 @@ func hacking_popup(list) -> void:
 
 func _on_popup_menu_index_pressed(index: int) -> void:
 	Globals.currenthack = addressids[index-1] # Replace with function body.
+	gameselect = randi_range(1,2)
 	currentminigame = addressminigame[index-1]
 	print(Globals.currenthack)
 	print(currentminigame)
-	if currentminigame == "maze":
+	if gameselect == 1:
 		get_random_maze()
 		get_tree().change_scene_to_file(mazeselect)
-	elif currentminigame == "laser":
+	elif gameselect == 2:
 		get_tree().change_scene_to_file("laser.tcsn")
