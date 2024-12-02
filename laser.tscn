@@ -161,7 +161,6 @@ layout_mode = 2
 texture = ExtResource("4_0pbgt")
 
 [node name="PlayerInput" type="RichTextLabel" parent="CanvasLayer/Panel/VBoxContainer/HBoxContainer/Player box"]
-z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,23 +170,6 @@ grow_vertical = 2
 theme = ExtResource("7_mmgev")
 bbcode_enabled = true
 script = ExtResource("2_mna81")
-
-[node name="success" type="Label" parent="CanvasLayer"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -197.0
-offset_top = -55.0
-offset_right = 197.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_mmgev")
-text = "Complete!"
-horizontal_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_xryta")
@@ -214,5 +196,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+
+[node name="success" type="Label" parent="CanvasLayer"]
+visible = false
+z_index = 14
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -55.0
+offset_right = 197.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_mmgev")
+text = "Complete!"
+horizontal_alignment = 1
 
 [connection signal="readyforcheck" from="." to="." method="_on_readyforcheck"]

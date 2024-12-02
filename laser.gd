@@ -111,7 +111,7 @@ func _on_readyforcheck() -> void:
 			$"CanvasLayer/Panel/VBoxContainer/Wall/Laser foreground".visible = false
 			$CanvasLayer/Panel/VBoxContainer/Wall/Hacker.position = Vector2(395, 73)
 			$"CanvasLayer/Green Flash".material.set_shader_parameter("Switch",1.0)
-			$"CanvasLayer/Panel/VBoxContainer/HBoxContainer/success".visible = true
+			$"CanvasLayer/success".visible = true
 			await wait(0.5)
 			instruction = {"action":"hack", "item":Globals.currenthack, "state":"success"}
 			send(instruction)
